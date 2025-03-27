@@ -25,11 +25,19 @@ Se tiene proyectado graficar las métricas enviadas al smartphone, ya sea en el 
 
 A continuación se presentan los diagramas en bloques de hardware y firmware pertenecientes al dispositivo dendrómetro.
 
-![Diagrama en bloques de hardware](imagenes/diagramas/bloques_hw.png)
+<p align="center">
+  <img src="imagenes/diagramas/bloques_hw.png" alt="Diagrama en bloques de hardware">
+</p>
 
-![Diagrama en bloques de firmware](imagenes/diagramas/bloques_fw.png)
+<p align="center">
+  <img src="imagenes/diagramas/bloques_fw.png" alt="Diagrama en bloques de firmware">
+</p>
 
-![Ampliación del módulo datalogger](imagenes/diagramas/amp_datalogger.png)
+<p align="center">
+  <img src="imagenes/diagramas/amp_datalogger.png" alt="Ampliación del módulo datalogger">
+</p>
+
+
 
 
 
