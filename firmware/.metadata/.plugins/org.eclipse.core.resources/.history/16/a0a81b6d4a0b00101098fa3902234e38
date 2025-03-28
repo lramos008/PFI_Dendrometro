@@ -1,0 +1,5 @@
+#ifndef RTC_DRIVER
+#define RTC_DRIVER
+
+
+#endif	// RTC_DRIVER

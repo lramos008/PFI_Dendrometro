@@ -1,0 +1,48 @@
+#include "main.h"
+#include "rtc_driver.h"
+
+#define RTC_DATE_START_ADDRESS	0x00;
+#define RTC_ALARM_SEC_ADDRESS 	0x07;
+#define RTC_ALARM_MIN_ADDRESS 	0x08;
+#define RTC_CONTROL_REG_ADDRESS 0x0E;
+
+/**
+ * Configure and start the RTC for its use.
+ *
+ * @param none
+ * @return none
+ */
+void RTCInit(void){
+	//Configurar para tener formato de 24 horas (indicador AM / PM).
+
+}
+
+/**
+ * Read date and time from the RTC.
+ *
+ * @param Pointer to a structure that will store the date and time read.
+ * @return none
+ */
+void RTCGetDateAndTime(sDateAndTime *dateTime){
+
+}
+
+/**
+ * Configure RTC with the desired date and time.
+ *
+ * @param Pointer to a structure that stores the date and time to be configured.
+ * @return none
+ */
+void RTCSetDateAndTime(const sDateAndTime *dateTime){
+
+}
+
+/**
+ * Stop RTC and free its ocuppied resources.
+ *
+ * @param none
+ * @return none
+ */
+void RTCDeinit(void){
+
+}

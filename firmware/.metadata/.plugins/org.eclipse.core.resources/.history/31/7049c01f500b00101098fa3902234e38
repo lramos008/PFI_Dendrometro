@@ -1,0 +1,10 @@
+#ifndef RTC_DRIVER
+#define RTC_DRIVER
+
+typedef struct{
+	uint16_t date;
+	uint16_t time;
+	uint8_t  checkSum;
+}sDateAndTime;
+
+#endif	// RTC_DRIVER

@@ -1,0 +1,22 @@
+#ifndef RTC_DRIVER
+#define RTC_DRIVER
+
+typedef struct{
+	uint8_t hours;
+	uint8_t minutes;
+	uint8_t seconds;
+} sTime;
+
+typedef struct{
+	uint8_t year;
+	uint8_t month;
+	uint8_t date;
+} sDate;
+
+typedef struct{
+	uint16_t date;
+	uint16_t time;
+
+}sDateAndTime;
+
+#endif	// RTC_DRIVER
