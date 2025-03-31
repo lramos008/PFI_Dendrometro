@@ -25,5 +25,4 @@ typedef struct{
 void RTCInit(void);
 void RTCGetDateAndTime(sDateAndTime *dateTime);
 void RTCSetDateAndTime(const sDateAndTime *dateTime);
-void RTCDeinit(void);
 #endif	// RTC_DRIVER
