@@ -1,7 +1,8 @@
 #ifndef RTC_DRIVER
 #define RTC_DRIVER
+#include "main.h"
 
-//Structure declaration
+// ==================== STRUCTURES ===================
 typedef struct{
 	uint8_t seconds;
 	uint8_t minutes;
@@ -21,7 +22,7 @@ typedef struct{
 }sDateAndTime;
 
 
-//Define function prototypes
+// =============== FUNCTION PROTOTYPES ==============
 void RTCInit(void);
 void RTCGetDateAndTime(sDateAndTime *dateTime);
 void RTCSetDateAndTime(const sDateAndTime *dateTime);

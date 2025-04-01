@@ -1,0 +1,7 @@
+../Core/drivers/rtc_driver.c:38:19:writeRTCRegisters	4
+../Core/drivers/rtc_driver.c:50:19:readRTCRegisters	4
+../Core/drivers/rtc_driver.c:67:16:decimalToBCD	1
+../Core/drivers/rtc_driver.c:80:16:BCDToDecimal	1
+../Core/drivers/rtc_driver.c:93:6:RTCInit	1
+../Core/drivers/rtc_driver.c:112:6:RTCGetDateAndTime	1
+../Core/drivers/rtc_driver.c:141:6:RTCSetDateAndTime	1

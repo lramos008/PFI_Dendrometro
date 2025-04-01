@@ -1,0 +1,17 @@
+17:57:46 **** Incremental Build of configuration Debug for project PFI_Dendro ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/drivers/rtc_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/drivers/rtc_driver.d" -MT"Core/drivers/rtc_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/drivers/rtc_driver.o"
+arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PFI_Dendro.elf
+ 
+arm-none-eabi-size  PFI_Dendro.elf 
+arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
+   text	   data	    bss	    dec	    hex	filename
+   5880	     20	   1652	   7552	   1d80	PFI_Dendro.elf
+Finished building: default.size.stdout
+ 
+Finished building: PFI_Dendro.list
+ 
+
+17:57:50 Build Finished. 0 errors, 0 warnings. (took 4s.692ms)
+
