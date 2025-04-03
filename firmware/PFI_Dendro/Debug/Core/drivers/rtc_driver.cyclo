@@ -8,4 +8,5 @@
 ../Core/drivers/rtc_driver.c:156:6:RTCInit	1
 ../Core/drivers/rtc_driver.c:174:12:RTCGetDateAndTime	4
 ../Core/drivers/rtc_driver.c:211:12:RTCSetDateAndTime	4
-../Core/drivers/rtc_driver.c:239:12:configAlarm	1
+../Core/drivers/rtc_driver.c:239:12:configNextMinutesAlarm	1
+../Core/drivers/rtc_driver.c:244:6:clearMinutesAlarm	1

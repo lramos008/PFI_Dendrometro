@@ -15,6 +15,10 @@
 #define RTC_ENABLE_INTERRUPT_OUTPUT		(1 << 2)
 #define RTC_DISABLE_OSCILLATOR			(1 << 7)
 #define RTC_ENABLE_OSCILLATOR			~(1 << 7)
+#define RTC_SET_ALARM_MASK_BIT			(1 << 7)
+#define RTC_CLEAR_ALARM_MASK_BIT		~(1 << 7)
+#define RTC_SET_DYDT_BIT				(1 << 6)
+#define RTC_CLEAR_DYDT_BIT				~(1 << 6)
 #define RTC_DATETIME_REGISTER_NUM		7
 #define MAX_RETRIES						10
 
@@ -143,7 +147,6 @@ static tStatusRTC isValidDateTime(const sDateAndTime *dateTime){
 	return status;
 }
 
-
 // ====================[ PUBLIC FUNCTIONS ]======================
 
 /**
@@ -236,11 +239,37 @@ tStatusRTC RTCSetDateAndTime(const sDateAndTime *dateTime){
 	return status;
 }
 
-tStatusRTC configNextMinutesAlarm(sDateAndTime currentDateTime, uint8_t minutesUntilAlarm){
-	uint8_t auxRegister;
+tStatusRTC RTCSetAlarm2(uint8_t minutes, uint8_t hours, uint8_t day, uint8_t date, tAlarmMaskRTC mask){
+	tStatusRTC status;
+	uint8_t auxRegister[3] = {RTC_SET_ALARM_MASK_BIT, RTC_SET_ALARM_MASK_BIT, RTC_SET_ALARM_MASK_BIT};
+	switch(mask){
+	case RTC_ALARM_ONCE_PER_MINUTE:
+		//All values are masked
+		break;
+	case RTC_ALARM_MINUTES_MATCH:
+		auxRegister[0] = minutes & RTC_CLEAR_ALARM_MASK_BIT;
+		break;
+	case RTC_ALARM_MINUTES_HOURS_MATCH:
+		auxRegister[0] = minutes & RTC_CLEAR_ALARM_MASK_BIT;
+		auxRegister[1] = hours   & RTC_CLEAR_ALARM_MASK_BIT;
+		break;
+	case RTC_ALARM_MINUTES_HOURS_DATE_MATCH:
+		auxRegister[0] = minutes & RTC_CLEAR_ALARM_MASK_BIT;
+		auxRegister[1] = hours   & RTC_CLEAR_ALARM_MASK_BIT;
+		auxRegister[2] = date    & RTC_CLEAR_ALARM_MASK_BIT & RTC_CLEAR_DYDT_BIT;
+		break;
+	case RTC_ALARM_MINUTES_HOURS_DAY_MATCH:
+		auxRegister[0] = minutes & RTC_CLEAR_ALARM_MASK_BIT;
+		auxRegister[1] = hours   & RTC_CLEAR_ALARM_MASK_BIT;
+		auxRegister[2] = day     & RTC_CLEAR_ALARM_MASK_BIT | RTC_SET_DYDT_BIT;
+		break;
+	default:
+		break;
+	}
 
+	//Set the alarm
+	status = writeRTCRegisters(RTC_SLAVE_ADDRESS, RTC_ALARM2_BASE_ADDRESS, auxRegister, 3);
+	return status;
 }
 
-void clearMinutesAlarm(void){
 
-}

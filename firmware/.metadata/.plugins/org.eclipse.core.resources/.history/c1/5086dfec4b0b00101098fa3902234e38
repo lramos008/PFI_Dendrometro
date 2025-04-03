@@ -1,8 +1,0 @@
-#ifndef RTC_DRIVER
-#define RTC_DRIVER
-
-typedef struct{
-	uint16_t Date;
-}sDateAndTime;
-
-#endif	// RTC_DRIVER

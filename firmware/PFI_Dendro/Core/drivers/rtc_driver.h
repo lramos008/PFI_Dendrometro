@@ -12,9 +12,12 @@ typedef enum{
 }tStatusRTC;
 
 typedef enum{
-	RTC_ALARM1 = 0,
-	RTC_ALARM2
-}tAlarm;
+	RTC_ALARM_ONCE_PER_MINUTE = 0,
+	RTC_ALARM_MINUTES_MATCH,
+	RTC_ALARM_MINUTES_HOURS_MATCH,
+	RTC_ALARM_MINUTES_HOURS_DATE_MATCH,
+	RTC_ALARM_MINUTES_HOURS_DAY_MATCH,
+}tAlarmMaskRTC;
 
 // =====================[ STRUCTURES ]=======================
 typedef struct{
@@ -36,10 +39,10 @@ typedef struct{
 }sDateAndTime;
 
 
+
+
 // =============== FUNCTION PROTOTYPES ==============
 void RTCInit(void);
 tStatusRTC RTCGetDateAndTime(sDateAndTime *dateTime);
 tStatusRTC RTCSetDateAndTime(const sDateAndTime *dateTime);
-tStatusRTC configNextMinutesAlarm(sDateAndTime currentDateTime, uint8_t minutesUntilAlarm);
-void clearMinutesAlarm(void);
 #endif	// RTC_DRIVER
