@@ -1,7 +1,11 @@
-../Core/drivers/rtc_driver.c:38:19:writeRTCRegisters	32	static
-../Core/drivers/rtc_driver.c:50:19:readRTCRegisters	32	static
-../Core/drivers/rtc_driver.c:67:16:decimalToBCD	16	static
+../Core/drivers/rtc_driver.c:26:19:writeRTCRegisters	48	static
+../Core/drivers/rtc_driver.c:34:19:readRTCRegisters	48	static
+../Core/drivers/rtc_driver.c:70:16:decimalToBCD	16	static
 ../Core/drivers/rtc_driver.c:80:16:BCDToDecimal	16	static
-../Core/drivers/rtc_driver.c:93:6:RTCInit	4	static
-../Core/drivers/rtc_driver.c:112:6:RTCGetDateAndTime	48	static
-../Core/drivers/rtc_driver.c:141:6:RTCSetDateAndTime	24	static
+../Core/drivers/rtc_driver.c:92:19:isValidDate	24	static
+../Core/drivers/rtc_driver.c:112:19:isValidTime	24	static
+../Core/drivers/rtc_driver.c:133:19:isValidDateTime	24	static
+../Core/drivers/rtc_driver.c:156:6:RTCInit	16	static
+../Core/drivers/rtc_driver.c:174:12:RTCGetDateAndTime	56	static
+../Core/drivers/rtc_driver.c:211:12:RTCSetDateAndTime	32	static
+../Core/drivers/rtc_driver.c:239:12:configAlarm	16	static

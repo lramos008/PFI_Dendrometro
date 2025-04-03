@@ -2,19 +2,33 @@
 #define RTC_DRIVER
 #include "main.h"
 
-// ==================== STRUCTURES ===================
+// =======================[ ENUMS ]==========================
+typedef enum{
+	RTC_OK = 0,
+	RTC_ERROR_WRITE_FAILED,
+	RTC_ERROR_READ_FAILED,
+	RTC_INVALID_DATE_FORMAT,
+	RTC_INVALID_TIME_FORMAT
+}tStatusRTC;
+
+typedef enum{
+	RTC_ALARM1 = 0,
+	RTC_ALARM2
+}tAlarm;
+
+// =====================[ STRUCTURES ]=======================
 typedef struct{
 	uint8_t seconds;
 	uint8_t minutes;
 	uint8_t hours;
-} sTime;
+}sTime;
 
 typedef struct{
 	uint8_t day;
 	uint8_t date;
 	uint8_t month;
 	uint8_t year;
-} sDate;
+}sDate;
 
 typedef struct{
 	sDate date;
@@ -24,6 +38,8 @@ typedef struct{
 
 // =============== FUNCTION PROTOTYPES ==============
 void RTCInit(void);
-void RTCGetDateAndTime(sDateAndTime *dateTime);
-void RTCSetDateAndTime(const sDateAndTime *dateTime);
+tStatusRTC RTCGetDateAndTime(sDateAndTime *dateTime);
+tStatusRTC RTCSetDateAndTime(const sDateAndTime *dateTime);
+tStatusRTC configNextMinutesAlarm(sDateAndTime currentDateTime, uint8_t minutesUntilAlarm);
+void clearMinutesAlarm(void);
 #endif	// RTC_DRIVER
