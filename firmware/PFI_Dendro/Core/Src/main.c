@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "rtc_driver.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,11 +67,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  sDateAndTime dateTimeToSet = {.time = {.seconds = 0, .minutes = 37, .hours = 19},
-  	  	  	  	  	  	  	  	.date = {.day = 3, .date = 2, .month = 4, .year = 25}};
 
-  sDateAndTime readDateTime = {0};
-  tStatusRTC status;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -94,8 +90,7 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  status = RTCSetDateAndTime(&dateTimeToSet);
-  status = RTCGetDateAndTime(&readDateTime);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

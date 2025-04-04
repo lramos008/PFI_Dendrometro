@@ -1,0 +1,7 @@
+../Core/drivers/date_and_time.c:8:17:dateTimeIsLeapYear	16	static
+../Core/drivers/date_and_time.c:12:17:dateTimeDaysInMonth	80	static
+../Core/drivers/date_and_time.c:28:13:dateTimeNormalize	24	static
+../Core/drivers/date_and_time.c:55:17:isValidDateTime	32	static
+../Core/drivers/date_and_time.c:73:6:dateTimeAddSeconds	16	static
+../Core/drivers/date_and_time.c:79:6:dateTimeAddMinutes	16	static
+../Core/drivers/date_and_time.c:85:6:dateTimeAddHours	16	static

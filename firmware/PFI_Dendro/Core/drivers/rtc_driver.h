@@ -9,40 +9,18 @@ typedef enum{
 	RTC_ERROR_READ_FAILED,
 	RTC_INVALID_DATE_FORMAT,
 	RTC_INVALID_TIME_FORMAT
-}tStatusRTC;
-
-typedef enum{
-	RTC_ALARM_ONCE_PER_MINUTE = 0,
-	RTC_ALARM_MINUTES_MATCH,
-	RTC_ALARM_MINUTES_HOURS_MATCH,
-	RTC_ALARM_MINUTES_HOURS_DATE_MATCH,
-	RTC_ALARM_MINUTES_HOURS_DAY_MATCH,
-}tAlarmMaskRTC;
+}tRtcStatus
 
 // =====================[ STRUCTURES ]=======================
-typedef struct{
-	uint8_t seconds;
-	uint8_t minutes;
-	uint8_t hours;
-}sTime;
 
-typedef struct{
-	uint8_t day;
-	uint8_t date;
-	uint8_t month;
-	uint8_t year;
-}sDate;
-
-typedef struct{
-	sDate date;
-	sTime time;
-}sDateAndTime;
 
 
 
 
 // =============== FUNCTION PROTOTYPES ==============
 void RTCInit(void);
-tStatusRTC RTCGetDateAndTime(sDateAndTime *dateTime);
-tStatusRTC RTCSetDateAndTime(const sDateAndTime *dateTime);
+tRtcStatus RTCGetDateAndTime(sDateAndTime *dateTime);
+tRtcStatus RTCSetDateAndTime(const sDateAndTime *dateTime);
+tRtcStatus RTCConfigAlarm1(void);
+tRtcStatus RTCConfigAlarm2(void);
 #endif	// RTC_DRIVER
