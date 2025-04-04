@@ -14,14 +14,14 @@ typedef struct{
 	uint32_t seconds;
 	uint32_t minutes;
 	uint32_t hours;
-	uint32_t day;
+	uint32_t dayOfWeek;
 	uint32_t date;
 	uint32_t month;
 	uint32_t year;
 }sDateTime;
 
 // =======================[ Public functions ]==========================
-tDateTimeStatus isValidDateTime(sDateTime *dateTime);
+tDateTimeStatus dateTimeisValid(sDateTime *dateTime);
 void dateTimeAddSeconds(sDateTime *dateTime, uint32_t seconds);
 void dateTimeAddMinutes(sDateTime *dateTime, uint32_t minutes);
 void dateTimeAddHours(sDateTime *dateTime, uint32_t hours);

@@ -18,7 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "date_and_time.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -90,6 +90,20 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+  tDateTimeStatus status;
+  sDateTime dateTime = {.hours = 23, .minutes = 59, .seconds = 30,
+		  	  	  	    .dayOfWeek = 3, .date = 30, .month = 4, .year = 25};
+
+  //Check if it is a valid date time
+  status = dateTimeisValid(&dateTime);
+  if(status == DATETIME_OK){
+	  //Add seconds
+	  dateTimeAddSeconds(&dateTime, 45);
+	  //Add minutes
+	  dateTimeAddMinutes(&dateTime, 30);
+	  //Add hours
+	  dateTimeAddHours(&dateTime, 2);
+  }
 
   /* USER CODE END 2 */
 
@@ -97,10 +111,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+
   }
   /* USER CODE END 3 */
 }
