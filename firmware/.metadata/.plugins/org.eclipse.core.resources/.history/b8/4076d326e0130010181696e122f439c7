@@ -1,0 +1,10 @@
+#ifndef DHT22_DRIVER_H
+#define DHT22_DRIVER_H
+// ==========================[ Includes ]===============================
+#include "delay_us.h"
+
+typedef enum{
+	DHT22_SENSOR_PRESENT = 0,
+	DHT22_SENSOR_NOT_PRESENT
+}tDht22State;
+#endif //DHT22_DRIVER_H

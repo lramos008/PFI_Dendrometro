@@ -22,9 +22,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
- /home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/rtc_manager.h \
- /home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/rtc_driver.h \
- /home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/date_and_time.h
+ ../Core/Src/../rtc/rtc_manager.h \
+ ../Core/Src/../rtc/../rtc/date_and_time.h \
+ ../Core/Src/../rtc/../rtc/rtc_driver.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -49,6 +49,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
-/home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/rtc_manager.h:
-/home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/rtc_driver.h:
-/home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/date_and_time.h:
+../Core/Src/../rtc/rtc_manager.h:
+../Core/Src/../rtc/../rtc/date_and_time.h:
+../Core/Src/../rtc/../rtc/rtc_driver.h:

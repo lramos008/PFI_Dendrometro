@@ -1,0 +1,4 @@
+#include "delay_us.h"
+// =======================[ Extern variables ]==========================
+extern TIM_HandleTypeDef htim1;
+// =======================[ Public functions ]==========================

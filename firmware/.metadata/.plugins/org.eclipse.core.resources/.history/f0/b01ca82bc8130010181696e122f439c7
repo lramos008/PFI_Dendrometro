@@ -1,0 +1,39 @@
+#ifndef RTC_DRIVER
+#define RTC_DRIVER
+
+// ===================== [ INCLUDES ]==========================
+#include "main.h"
+#include <stdbool.h>
+// =======================[ ENUMS ]==========================
+typedef enum{
+	DS3231_OK = 0,
+	DS3231_ERROR_WRITE,
+	DS3231_ERROR_READ
+}tDs3231Status;
+
+typedef enum{
+	DS3231_ALARM2_ONCE_PER_MINUTE = 0,
+	DS3231_ALARM2_MINUTES_MATCH,
+	DS3231_ALARM2_MINUTES_HOURS_MATCH,
+	DS3231_ALARM2_MINUTES_HOURS_DATE_MATCH,
+	DS3231_ALARM2_MINUTES_HOURS_DAY_MATCH
+}tDs3231Alarm2Mode;
+
+// =====================[ STRUCTURES ]=======================
+typedef struct{
+	uint8_t seconds;
+	uint8_t minutes;
+	uint8_t hours;
+	uint8_t dayOfWeek;
+	uint8_t date;
+	uint8_t month;
+	uint8_t year;
+}sDs3231DateTime;
+
+// =================[ FUNCTION PROTOTYPES ]==================
+tDs3231Status ds3231ReadDateTime(sRtcDateTime *dateTime);
+tDs3231Status ds3231WriteDateTime(const sRtcDateTime *dateTime);
+tDs3231Status ds3231SetAlarm2(tRtcAlarm2Mode mode, uint8_t minutes, uint8_t hours, uint8_t dyDt);
+tDs3231Status ds3231SetAlarm2Interrupt(bool enable);
+tDs3231Status ds3231ClearAlarm2Flag(void);
+#endif	// RTC_DRIVER

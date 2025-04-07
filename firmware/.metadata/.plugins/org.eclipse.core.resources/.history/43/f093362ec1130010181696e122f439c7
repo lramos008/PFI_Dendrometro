@@ -1,0 +1,15 @@
+#ifndef RTC_MANAGER
+#define RTC_MANAGER
+
+// ===================== [ INCLUDES ]==========================
+#include  "rtc_driver.h"
+#include "date_and_time.h"
+
+// ================= [ PUBLIC FUNCTIONS ]======================
+void readDateTime(sDateTime *dateTime);
+void setDateTime(sDateTime *dateTime);
+void void enableRtcAlarmInterrupt(void)
+void disableRtcAlarmInterrupt(void);
+void clearRtcAlarmInterruptFlag(void);
+void SetNextMinutesAlarm(uint32_t minutesToAdd);
+#endif //RTC_MANAGER

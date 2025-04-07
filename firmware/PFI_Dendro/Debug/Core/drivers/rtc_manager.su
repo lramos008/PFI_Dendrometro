@@ -1,7 +1,0 @@
-../Core/drivers/rtc_manager.c:3:13:rtcToDateTimeFormat	16	static
-../Core/drivers/rtc_manager.c:15:6:setDateTime	24	static
-../Core/drivers/rtc_manager.c:32:6:readDateTime	24	static
-../Core/drivers/rtc_manager.c:43:6:enableAlarmInterrupt	8	static
-../Core/drivers/rtc_manager.c:47:6:disableAlarmInterrupt	8	static
-../Core/drivers/rtc_manager.c:51:6:clearAlarmInterruptFlag	8	static
-../Core/drivers/rtc_manager.c:55:6:SetNextMinutesAlarm	56	static

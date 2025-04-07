@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PFI_Dendro/Core/drivers&apos; to &apos;rtc&apos;" description="Rename resource &apos;drivers&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/drivers" name="rtc" stamp="1744041528608" updateReferences="true"/>
+</session>

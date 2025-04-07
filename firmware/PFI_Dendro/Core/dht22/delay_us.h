@@ -1,0 +1,7 @@
+#ifndef DELAY_US_H
+#define DELAY_US_H
+// ==========================[ Includes ]===============================
+#include "main.h"
+// ======================[ Public functions ]===========================
+void delayMicro(uint16_t microseconds);
+#endif //DELAY_US_H

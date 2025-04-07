@@ -1,0 +1,233 @@
+/*This RTC module uses the 24 hs per day format*/
+// ===========================[ INCLUDES ]===============================
+#include "rtc_driver2.h"
+
+// ======================[ EXTERNAL VARIABLES ]==========================
+extern I2C_HandleTypeDef hi2c1;
+// ===========================[ INCLUDES ]===============================
+#define DS3231_SLAVE_ADDRESS	   			(0x68 << 1)
+#define DS3231_MEMORY_BASE_ADDRESS			0x00
+#define DS3231_DATETIME_BASE_ADDRESS		RTC_MEMORY_BASE_ADDRESS
+#define DS3231_ALARM1_BASE_ADDRESS			(RTC_MEMORY_BASE_ADDRESS + 0x07)
+#define DS3231_ALARM2_BASE_ADDRESS			(RTC_MEMORY_BASE_ADDRESS + 0x0B)
+#define DS3231_CONTROL_REGISTER_ADDRESS		(RTC_MEMORY_BASE_ADDRESS + 0x0E)
+#define DS3231_STATUS_REGISTER_ADDRESS		(RTC_MEMORY_BASE_ADDRESS + 0x0F)
+
+#define DS3231_ENABLE_ALARM2_INTERRUPT		(1 << 1)
+#define DS3231_ENABLE_INT_OUTPUT			(1 << 2)
+#define DS3231_DISABLE_OSCILLATOR			(1 << 7)
+#define DS3231_CLEAR_ALARM2_INTERRUPT		~(1 << 1)
+#define	DS3231_SET_ALARM2_MASK_BIT			(1 << 7)
+#define DS3231_CLEAR_ALARM2_MASK_BIT		~(1 << 7)
+#define DS3231_SET_24HOURS_FORMAT			~(1 << 6)
+#define DS3231_SET_DYDT_BIT					(1 << 6)
+#define DS3231_CLEAR_DYDT_BIT				~(1 << 6)
+#define DS3231_DATETIME_REGISTERS 			7
+#define DS3231_ALARM2_REGISTERS				3
+#define DS3231_MAX_RETRIES				    10
+
+// =======================[ PRIVATE FUNCTIONS ]==========================
+/**
+ * Convert a decimal number into its BCD representation
+ *
+ * @param Desired decimal number between 0 and 99.
+ * @return BCD representation (4 bits per digit, 4 MSBs are tens, the other 4 bits are units).
+ */
+static uint8_t decimalToBCD(uint8_t decimal){
+	return ((decimal / 10) << 4) | (decimal % 10);
+}
+
+/**
+ * Convert a BCD representation into its corresponding decimal number.
+ *
+ * @param BCD representation (4 bits per digit, 4 MSBs are tens, the other 4 bits are units).
+ * @return Resulting decimal number between 0 and 99.
+ */
+static uint8_t BCDToDecimal(uint8_t bcd){
+	return ((bcd >> 4) * 10) + (bcd & 0x0F);
+}
+
+
+static tDs3231Status ds3231WriteRegisters(uint16_t slaveAddress, uint16_t registerAddress, uint8_t *dataToWrite, uint16_t dataSize){
+	HAL_StatusTypeDef status;
+	uint8_t retries = 0;
+
+	//Try to write on RTC registers
+	do{
+		status = HAL_I2C_Mem_Write(&hi2c1, slaveAddress, registerAddress, I2C_MEMADD_SIZE_8BIT, dataToWrite, dataSize, HAL_MAX_DELAY);
+		retries++;
+	}while(status != HAL_OK && retries < DS3231_MAX_RETRIES);
+
+	//Return writing status
+	return (status == HAL_OK) ? DS3231_OK : DS3231_ERROR_WRITE;
+}
+
+static tDs3231Status rtcReadRegisters(uint16_t slaveAddress, uint16_t registerAddress, uint8_t *dataToRead, uint16_t dataSize){
+	HAL_StatusTypeDef status;
+	uint8_t retries = 0;
+	do{
+		status = HAL_I2C_Mem_Read(&hi2c1, slaveAddress, registerAddress, I2C_MEMADD_SIZE_8BIT, dataToRead, dataSize, HAL_MAX_DELAY);
+		retries++;
+	}while(status != HAL_OK && retries < DS3231_MAX_RETRIES);
+
+	return (status == HAL_OK) ? DS3231_OK : DS3231_ERROR_READ;
+}
+
+
+tDs3231Status rtcReadDateTime(sRtcDateTime *dateTime){
+	tDs3231Status status;
+	uint8_t rtcRegisters[RTC_DATETIME_REGISTERS];
+
+	//Read date and time from DS3231 memory
+	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_DATETIME_BASE_ADDRESS, rtcRegisters, RTC_DATETIME_REGISTERS);
+
+
+	if(status == RTC_OK){
+		//Decode and pass time data into the structure
+		dateTime->seconds = BCDToDecimal(rtcRegisters[0]);
+		dateTime->minutes = BCDToDecimal(rtcRegisters[1]);
+		dateTime->hours   = BCDToDecimal(rtcRegisters[2] & 0x3F);
+
+		//Decode and pass date data into the structure
+		dateTime->dayOfWeek = BCDToDecimal(rtcRegisters[3]);
+		dateTime->date      = BCDToDecimal(rtcRegisters[4]);
+		dateTime->month     = BCDToDecimal(rtcRegisters[5] & 0x1F);
+		dateTime->year      = BCDToDecimal(rtcRegisters[6]);
+	}
+
+	//Return status of the operation
+	return status;
+}
+
+tRtcStatus rtcWriteDateTime(const sRtcDateTime *dateTime){
+	tRtcStatus status;
+	uint8_t rtcRegisters[RTC_DATETIME_REGISTERS];
+
+	//Encode time data in BCD format
+	rtcRegisters[0] = decimalToBCD(dateTime->seconds);
+	rtcRegisters[1] = decimalToBCD(dateTime->minutes);
+	rtcRegisters[2] = decimalToBCD(dateTime->hours) & 0x3F;			//Ensure that 12/~24 bit is low to select 24 hours format
+
+	//Encode date data
+	rtcRegisters[3] = decimalToBCD(dateTime->dayOfWeek);
+	rtcRegisters[4] = decimalToBCD(dateTime->date);
+	rtcRegisters[5] = decimalToBCD(dateTime->month);
+	rtcRegisters[6] = decimalToBCD(dateTime->year);
+
+	//Write date and time on DS3231's memory
+	status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_DATETIME_BASE_ADDRESS, rtcRegisters, RTC_DATETIME_REGISTERS);
+
+	//Return status of the operation
+	return status;
+}
+
+tRtcStatus rtcSetAlarm2(tRtcAlarm2Mode mode, uint8_t minutes, uint8_t hours, uint8_t dyDt){
+	tRtcStatus status;
+	uint8_t alarm2Registers[RTC_ALARM2_REGISTERS] = {RTC_SET_ALARM2_MASK_BIT, RTC_SET_ALARM2_MASK_BIT, RTC_SET_ALARM2_MASK_BIT};
+//	uint8_t checkRegisters[RTC_ALARM2_REGISTERS] = {0};
+	//Decide which registers should be masked
+	switch(mode){
+	case RTC_ALARM2_ONCE_PER_MINUTE:
+		//set by default
+		break;
+	case RTC_ALARM2_MINUTES_MATCH:
+		//Unmask alarm2 mask bits
+		alarm2Registers[0] &= RTC_CLEAR_ALARM2_MASK_BIT;
+		break;
+	case RTC_ALARM2_MINUTES_HOURS_MATCH:
+		//Unmask alarm2 mask bits
+		alarm2Registers[0] &= RTC_CLEAR_ALARM2_MASK_BIT;
+		alarm2Registers[1] &= RTC_CLEAR_ALARM2_MASK_BIT;
+		break;
+	case RTC_ALARM2_MINUTES_HOURS_DAY_MATCH:
+	case RTC_ALARM2_MINUTES_HOURS_DATE_MATCH:
+		//Unmask alarm2 mask bits
+		alarm2Registers[0] &= RTC_CLEAR_ALARM2_MASK_BIT;
+		alarm2Registers[1] &= RTC_CLEAR_ALARM2_MASK_BIT;
+		alarm2Registers[2] &= RTC_CLEAR_ALARM2_MASK_BIT;
+
+		//Select day or date
+		if(mode == RTC_ALARM2_MINUTES_HOURS_DATE_MATCH){
+			alarm2Registers[2] &= RTC_CLEAR_DYDT_BIT;
+		}
+		else{
+			alarm2Registers[2] |= RTC_SET_DYDT_BIT;
+		}
+		break;
+	default:
+		break;
+	}
+
+	//Select 24 hours format
+	alarm2Registers[1] &= RTC_SET_24HOURS_FORMAT;
+
+	//Encode alarm 2 time and date vaues into bcd format
+	alarm2Registers[0] &= 0x80;								//Clear minutes bits
+	alarm2Registers[1] &= 0xC0;								//Clear hours bits
+	alarm2Registers[2] &= 0xC0;								//Clear date/day bits
+	alarm2Registers[0] |= (decimalToBCD(minutes) & 0x7F);	//Ensure the BCD conversion has only the requiered number of bits
+	alarm2Registers[1] |= (decimalToBCD(hours)   & 0x3F);
+	alarm2Registers[2] |= (decimalToBCD(dyDt)    & 0x3F);
+
+	//Write alarm2 registers
+	status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_ALARM2_BASE_ADDRESS, alarm2Registers, RTC_ALARM2_REGISTERS);
+
+//	//Read alarm2 registers
+//	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_ALARM2_BASE_ADDRESS, checkRegisters, RTC_ALARM2_REGISTERS);
+	//Return status of operation
+	return status;
+}
+
+
+tRtcStatus rtcSetAlarm2Interrupt(bool enable){
+	tRtcStatus status;
+	uint8_t controlRegister;
+//	uint8_t checkRegister;
+
+	//Read the control register
+	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_CONTROL_REGISTER_ADDRESS, &controlRegister, 1);
+	if(status == RTC_OK){
+		//Check if interrupt should be enabled or disabled
+		if(enable){
+			controlRegister |= RTC_ENABLE_ALARM2_INTERRUPT | RTC_ENABLE_INT_OUTPUT;
+		}
+		else{
+			controlRegister &= ~(RTC_ENABLE_ALARM2_INTERRUPT | RTC_ENABLE_INT_OUTPUT);
+		}
+
+		//Write the control register
+		status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_CONTROL_REGISTER_ADDRESS, &controlRegister, 1);
+
+//		//Read control register
+//		status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_CONTROL_REGISTER_ADDRESS, &checkRegister, 1);
+	}
+
+	//Return status of the operation
+	return status;
+}
+
+
+
+
+tRtcStatus rtcClearAlarm2Flag(void){
+	tRtcStatus status;
+	uint8_t statusRegister;
+//	uint8_t checkRegister;
+
+	//Read the status register
+	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_STATUS_REGISTER_ADDRESS, &statusRegister, 1);
+	if(status == RTC_OK){
+		//Clear the A2F bit
+		statusRegister &= RTC_CLEAR_ALARM2_INTERRUPT;
+
+		//Write the status register bit 1 to clear the A2F
+		status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_STATUS_REGISTER_ADDRESS, &statusRegister, 1);
+
+//		status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_STATUS_REGISTER_ADDRESS, &checkRegister, 1);
+	}
+	return status;
+}
+
+
+
+
