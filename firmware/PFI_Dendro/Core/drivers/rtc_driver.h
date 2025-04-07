@@ -1,5 +1,7 @@
 #ifndef RTC_DRIVER
 #define RTC_DRIVER
+
+// ===================== [ INCLUDES ]==========================
 #include "main.h"
 #include <stdbool.h>
 // =======================[ ENUMS ]==========================
@@ -32,6 +34,7 @@ typedef struct{
 tRtcStatus rtcInit(void);
 tRtcStatus rtcReadDateTime(sRtcDateTime *dateTime);
 tRtcStatus rtcWriteDateTime(const sRtcDateTime *dateTime);
+tRtcStatus rtcSetAlarm2(tRtcAlarm2Mode mode, uint8_t minutes, uint8_t hours, uint8_t dyDt);
 tRtcStatus rtcSetAlarm2Interrupt(bool enable);
-void rtcClearAlarm2Flag(void);
+tRtcStatus rtcClearAlarm2Flag(void);
 #endif	// RTC_DRIVER

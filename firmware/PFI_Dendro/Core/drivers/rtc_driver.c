@@ -2,6 +2,8 @@
 // ===========================[ INCLUDES ]===============================
 #include "rtc_driver.h"
 
+// ======================[ EXTERNAL VARIABLES ]==========================
+extern I2C_HandleTypeDef hi2c1;
 // ===========================[ INCLUDES ]===============================
 #define RTC_SLAVE_ADDRESS	   			(0x68 << 1)
 #define RTC_MEMORY_BASE_ADDRESS			0x00
@@ -71,8 +73,9 @@ static tRtcStatus rtcReadRegisters(uint16_t slaveAddress, uint16_t registerAddre
 	return (status == HAL_OK) ? RTC_OK : RTC_ERROR_READ;
 }
 
-void rtcInit(void){
-
+tRtcStatus rtcInit(void){
+	tRtcStatus status = RTC_OK;
+	return status;
 }
 
 tRtcStatus rtcReadDateTime(sRtcDateTime *dateTime){
@@ -125,8 +128,7 @@ tRtcStatus rtcWriteDateTime(const sRtcDateTime *dateTime){
 tRtcStatus rtcSetAlarm2(tRtcAlarm2Mode mode, uint8_t minutes, uint8_t hours, uint8_t dyDt){
 	tRtcStatus status;
 	uint8_t alarm2Registers[RTC_ALARM2_REGISTERS] = {RTC_SET_ALARM2_MASK_BIT, RTC_SET_ALARM2_MASK_BIT, RTC_SET_ALARM2_MASK_BIT};
-	uint8_t auxBuffer;
-
+//	uint8_t checkRegisters[RTC_ALARM2_REGISTERS] = {0};
 	//Decide which registers should be masked
 	switch(mode){
 	case RTC_ALARM2_ONCE_PER_MINUTE:
@@ -163,12 +165,19 @@ tRtcStatus rtcSetAlarm2(tRtcAlarm2Mode mode, uint8_t minutes, uint8_t hours, uin
 	//Select 24 hours format
 	alarm2Registers[1] &= RTC_SET_24HOURS_FORMAT;
 
-	//Encode the date and time in BCD format
-
+	//Encode alarm 2 time and date vaues into bcd format
+	alarm2Registers[0] &= 0x80;								//Clear minutes bits
+	alarm2Registers[1] &= 0xC0;								//Clear hours bits
+	alarm2Registers[2] &= 0xC0;								//Clear date/day bits
+	alarm2Registers[0] |= (decimalToBCD(minutes) & 0x7F);	//Ensure the BCD conversion has only the requiered number of bits
+	alarm2Registers[1] |= (decimalToBCD(hours)   & 0x3F);
+	alarm2Registers[2] |= (decimalToBCD(dyDt)    & 0x3F);
 
 	//Write alarm2 registers
 	status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_ALARM2_BASE_ADDRESS, alarm2Registers, RTC_ALARM2_REGISTERS);
 
+//	//Read alarm2 registers
+//	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_ALARM2_BASE_ADDRESS, checkRegisters, RTC_ALARM2_REGISTERS);
 	//Return status of operation
 	return status;
 }
@@ -177,6 +186,7 @@ tRtcStatus rtcSetAlarm2(tRtcAlarm2Mode mode, uint8_t minutes, uint8_t hours, uin
 tRtcStatus rtcSetAlarm2Interrupt(bool enable){
 	tRtcStatus status;
 	uint8_t controlRegister;
+//	uint8_t checkRegister;
 
 	//Read the control register
 	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_CONTROL_REGISTER_ADDRESS, &controlRegister, 1);
@@ -191,6 +201,9 @@ tRtcStatus rtcSetAlarm2Interrupt(bool enable){
 
 		//Write the control register
 		status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_CONTROL_REGISTER_ADDRESS, &controlRegister, 1);
+
+//		//Read control register
+//		status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_CONTROL_REGISTER_ADDRESS, &checkRegister, 1);
 	}
 
 	//Return status of the operation
@@ -203,6 +216,7 @@ tRtcStatus rtcSetAlarm2Interrupt(bool enable){
 tRtcStatus rtcClearAlarm2Flag(void){
 	tRtcStatus status;
 	uint8_t statusRegister;
+//	uint8_t checkRegister;
 
 	//Read the status register
 	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_STATUS_REGISTER_ADDRESS, &statusRegister, 1);
@@ -212,6 +226,8 @@ tRtcStatus rtcClearAlarm2Flag(void){
 
 		//Write the status register bit 1 to clear the A2F
 		status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_STATUS_REGISTER_ADDRESS, &statusRegister, 1);
+
+//		status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_STATUS_REGISTER_ADDRESS, &checkRegister, 1);
 	}
 	return status;
 }

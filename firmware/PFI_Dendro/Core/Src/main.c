@@ -18,10 +18,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "date_and_time.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "rtc_manager.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,28 +90,19 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  tDateTimeStatus status;
-  sDateTime dateTime = {.hours = 23, .minutes = 59, .seconds = 30,
-		  	  	  	    .dayOfWeek = 3, .date = 30, .month = 4, .year = 25};
+  sDateTime dateTime = {.hours = 20, .minutes = 30, .seconds = 0,
+		  	  	  	    .dayOfWeek = 7, .date = 6, .month = 4, .year = 25};
 
-  //Check if it is a valid date time
-  status = dateTimeisValid(&dateTime);
-  if(status == DATETIME_OK){
-	  //Add seconds
-	  dateTimeAddSeconds(&dateTime, 45);
-	  //Add minutes
-	  dateTimeAddMinutes(&dateTime, 30);
-	  //Add hours
-	  dateTimeAddHours(&dateTime, 2);
-  }
-
+  enableAlarmInterrupt();
+  clearAlarmInterruptFlag();
+  setDateTime(&dateTime);
+  SetNextMinutesAlarm(1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -217,13 +208,27 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : RTC_INT_Pin */
+  GPIO_InitStruct.Pin = RTC_INT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(RTC_INT_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	clearAlarmInterruptFlag();
+	SetNextMinutesAlarm(1);
+	HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+}
 /* USER CODE END 4 */
 
 /**
