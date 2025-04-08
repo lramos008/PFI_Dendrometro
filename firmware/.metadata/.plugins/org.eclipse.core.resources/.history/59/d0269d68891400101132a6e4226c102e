@@ -1,0 +1,9 @@
+#ifndef TEMP_AND_HR_H
+#define TEMP_AND_HR_H
+// ==========================[ Includes ]===============================
+#include "dht22_driver.h"
+// ==========================[ Structures ]=============================
+typedef struct{
+
+}sTempAndHR;
+#endif //TEMP_AND_HR

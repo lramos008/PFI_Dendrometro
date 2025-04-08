@@ -1,0 +1,4 @@
+#ifndef SHT21_DRIVER_H
+#define SHT21_DRIVER_H
+
+#endif //SHT21_DRIVER_H

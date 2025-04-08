@@ -1,0 +1,9 @@
+../Core/drivers/rtc/rtc_driver.c:36:16:decimalToBCD	16	static
+../Core/drivers/rtc/rtc_driver.c:46:16:BCDToDecimal	16	static
+../Core/drivers/rtc/rtc_driver.c:51:19:rtcWriteRegisters	48	static
+../Core/drivers/rtc/rtc_driver.c:65:19:rtcReadRegisters	48	static
+../Core/drivers/rtc/rtc_driver.c:77:12:rtcReadDateTime	24	static
+../Core/drivers/rtc/rtc_driver.c:102:12:rtcWriteDateTime	24	static
+../Core/drivers/rtc/rtc_driver.c:124:12:rtcSetAlarm2	32	static
+../Core/drivers/rtc/rtc_driver.c:182:12:rtcSetAlarm2Interrupt	24	static
+../Core/drivers/rtc/rtc_driver.c:212:12:rtcClearAlarm2Flag	16	static

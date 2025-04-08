@@ -1,0 +1,4 @@
+// ==========================[ Includes ]===============================
+#include "sht21_driver.h"
+// =====================[ External variables ]==========================
+extern I2C_HandleTypeDef hi2c1;

@@ -1,4 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete 2 resources" deleteContents="false" description="Delete 2 resources" element1="/PFI_Dendro/Core/drivers/rtc_driver2.c" element2="/PFI_Dendro/Core/drivers/rtc_driver2.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="2" stamp="1744041408350"/>
+<session version="1.0">&#x0A;<refactoring comment="Delete 2 resources" deleteContents="false" description="Delete 2 resources" element1="/PFI_Dendro/Core/drivers/rtc_driver2.c" element2="/PFI_Dendro/Core/drivers/rtc_driver2.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="2" stamp="1744041408350"/>&#x0A;<refactoring comment="Delete resource &apos;PFI_Dendro/Core/drivers&apos;" deleteContents="false" description="Delete resource &apos;PFI_Dendro/Core/drivers&apos;" element1="/PFI_Dendro/Core/drivers" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1744141634058"/>
 </session>

@@ -1,0 +1,6 @@
+../Core/drivers/dht22/dht22_driver.c:10:13:setPinAsOutput	32	static
+../Core/drivers/dht22/dht22_driver.c:18:13:setPinAsInput	32	static
+../Core/drivers/dht22/dht22_driver.c:27:6:dht22Start	8	static
+../Core/drivers/dht22/dht22_driver.c:44:13:dht22CheckResponse	16	static
+../Core/drivers/dht22/dht22_driver.c:59:9:dht22Read	16	static
+../Core/drivers/dht22/dht22_driver.c:82:13:checksumControl	32	static

@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "rtc_manager.h"
+#include "../services/environment_measure/environment_data.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,20 +95,15 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim1);
-  initializeRtc();
-  sDateTime dateTime = {.hours = 20, .minutes = 30, .seconds = 0,
-		  	  	  	    .dayOfWeek = 7, .date = 6, .month = 4, .year = 25};
-  setDateTime(&dateTime);
-  scheduleAlarmInMinutes(1);
-
-  enableAlarmInterrupt();
-
+  sEnvironmentData data;
+  environmentGetTempAndHR(&data);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -1,0 +1,19 @@
+#ifndef ENVIRONMENT_DATA_H
+#define ENVIRONMENT_DATA_H
+// ===========================[ Includes ]===============================
+#include "dht22_driver.h"
+// ===========================[ Typedefs ]===============================
+typedef enum{
+	ENVIRONMENT_OK,
+	ENVIRONMENT_FAILED_HR_TEMP_MEASURE,
+	ENVIRONMENT_FAILED_TEMP_MEASURE,
+	ENVIRONMENT_FAILED_LIGHT_MEASURE
+}tEnvironmentStatus;
+// ==========================[ Structures ]==============================
+typedef struct{
+	float relativeHumidity;
+	float temperature;
+	float lightLevel;
+	tEnvironmentStatus status;
+}sEnvironmentData;
+#endif //ENVIRONMENT_DATA_H
