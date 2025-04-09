@@ -1,0 +1,15 @@
+#ifndef SHT21_DRIVER_H
+#define SHT21_DRIVER_H
+// ==========================[ Includes ]===============================
+#include "main.h"
+#include "crc8.h"
+// ==========================[ Typedefs ]===============================
+typedef enum{
+
+}sht21Status;
+// =======================[ Public functions ]==========================
+void sht21Init(void);
+void sht21SoftReset(void);
+float sht21GetTemperature(void);
+float sht21GetRelativeHumidity(void);
+#endif //SHT21_DRIVER_H

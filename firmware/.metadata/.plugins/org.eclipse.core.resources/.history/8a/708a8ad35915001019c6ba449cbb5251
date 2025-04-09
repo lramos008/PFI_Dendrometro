@@ -1,0 +1,3 @@
+#ifndef CRC8_CALCULATION_H
+#define CRC8_CALCULATION_H
+

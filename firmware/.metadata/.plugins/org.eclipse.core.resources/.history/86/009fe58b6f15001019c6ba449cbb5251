@@ -1,0 +1,9 @@
+#ifndef SHT21_DRIVER_H
+#define SHT21_DRIVER_H
+// ==========================[ Includes ]===============================
+#include "main.h"
+#include "crc8.h"
+// ==========================[ Typedefs ]===============================
+void sht21Init(void);
+// =======================[ Public functions ]==========================
+#endif //SHT21_DRIVER_H

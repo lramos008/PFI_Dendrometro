@@ -38,12 +38,16 @@ C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.external
                               C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o) (_fflush_r)
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-sbrkr.o)
                               C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-mallocr.o) (_sbrk_r)
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldf3.o)
+                              ./Core/drivers/sht21/sht21_driver.o (__aeabi_dmul)
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubdf3.o)
-                              ./Core/services/environment_measure/environment_data.o (__aeabi_i2d)
+                              ./Core/drivers/sht21/sht21_driver.o (__aeabi_dsub)
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivdf3.o)
-                              ./Core/services/environment_measure/environment_data.o (__aeabi_ddiv)
+                              ./Core/drivers/sht21/sht21_driver.o (__aeabi_ddiv)
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_truncdfsf2.o)
-                              ./Core/services/environment_measure/environment_data.o (__aeabi_d2f)
+                              ./Core/drivers/sht21/sht21_driver.o (__aeabi_d2f)
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+                              ./Core/drivers/sht21/sht21_driver.o (__aeabi_ui2f)
 
 Discarded input sections
 
@@ -802,19 +806,146 @@ Discarded input sections
  .debug_frame   0x00000000      0x160 ./Core/drivers/rtc/rtc_driver.o
  .ARM.attributes
                 0x00000000       0x2d ./Core/drivers/rtc/rtc_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/crc8.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/crc8.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/crc8.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/crc8.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/crc8.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/crc8.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/crc8.o
+ .text          0x00000000        0x0 ./Core/drivers/sht21/crc8.o
+ .data          0x00000000        0x0 ./Core/drivers/sht21/crc8.o
+ .bss           0x00000000        0x0 ./Core/drivers/sht21/crc8.o
+ .rodata.crc8Table
+                0x00000000      0x100 ./Core/drivers/sht21/crc8.o
+ .text.calculateCRC
+                0x00000000       0x4c ./Core/drivers/sht21/crc8.o
+ .debug_info    0x00000000      0x114 ./Core/drivers/sht21/crc8.o
+ .debug_abbrev  0x00000000       0xbb ./Core/drivers/sht21/crc8.o
+ .debug_aranges
+                0x00000000       0x20 ./Core/drivers/sht21/crc8.o
+ .debug_rnglists
+                0x00000000       0x13 ./Core/drivers/sht21/crc8.o
+ .debug_macro   0x00000000       0x6d ./Core/drivers/sht21/crc8.o
+ .debug_macro   0x00000000      0xacc ./Core/drivers/sht21/crc8.o
+ .debug_macro   0x00000000       0x22 ./Core/drivers/sht21/crc8.o
+ .debug_macro   0x00000000       0x8e ./Core/drivers/sht21/crc8.o
+ .debug_macro   0x00000000       0x51 ./Core/drivers/sht21/crc8.o
+ .debug_macro   0x00000000      0x103 ./Core/drivers/sht21/crc8.o
+ .debug_macro   0x00000000       0x6a ./Core/drivers/sht21/crc8.o
+ .debug_macro   0x00000000      0x1df ./Core/drivers/sht21/crc8.o
+ .debug_line    0x00000000      0x43d ./Core/drivers/sht21/crc8.o
+ .debug_str     0x00000000     0x3da7 ./Core/drivers/sht21/crc8.o
+ .comment       0x00000000       0x44 ./Core/drivers/sht21/crc8.o
+ .debug_frame   0x00000000       0x38 ./Core/drivers/sht21/crc8.o
+ .ARM.attributes
+                0x00000000       0x2d ./Core/drivers/sht21/crc8.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
+ .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
  .group         0x00000000        0xc ./Core/drivers/sht21/sht21_driver.o
  .text          0x00000000        0x0 ./Core/drivers/sht21/sht21_driver.o
  .data          0x00000000        0x0 ./Core/drivers/sht21/sht21_driver.o
  .bss           0x00000000        0x0 ./Core/drivers/sht21/sht21_driver.o
- .debug_info    0x00000000       0x22 ./Core/drivers/sht21/sht21_driver.o
- .debug_abbrev  0x00000000       0x12 ./Core/drivers/sht21/sht21_driver.o
+ .text.sht21ConfigResolution
+                0x00000000       0xa0 ./Core/drivers/sht21/sht21_driver.o
+ .text.sht21SendCommand
+                0x00000000       0x38 ./Core/drivers/sht21/sht21_driver.o
+ .text.temperatureConversion
+                0x00000000       0x74 ./Core/drivers/sht21/sht21_driver.o
+ .text.humidityConversion
+                0x00000000       0x6c ./Core/drivers/sht21/sht21_driver.o
+ .text.sht21ReadMeasurement
+                0x00000000       0xd0 ./Core/drivers/sht21/sht21_driver.o
+ .text.sht21Init
+                0x00000000       0x20 ./Core/drivers/sht21/sht21_driver.o
+ .text.sht21GetRelativeHumidity
+                0x00000000       0x1e ./Core/drivers/sht21/sht21_driver.o
+ .text.sht21GetTemperature
+                0x00000000       0x1e ./Core/drivers/sht21/sht21_driver.o
+ .text.sht21SoftReset
+                0x00000000       0x26 ./Core/drivers/sht21/sht21_driver.o
+ .debug_info    0x00000000      0x8fc ./Core/drivers/sht21/sht21_driver.o
+ .debug_abbrev  0x00000000      0x1fa ./Core/drivers/sht21/sht21_driver.o
  .debug_aranges
-                0x00000000       0x18 ./Core/drivers/sht21/sht21_driver.o
- .debug_macro   0x00000000       0x11 ./Core/drivers/sht21/sht21_driver.o
+                0x00000000       0x60 ./Core/drivers/sht21/sht21_driver.o
+ .debug_rnglists
+                0x00000000       0x45 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x202 ./Core/drivers/sht21/sht21_driver.o
  .debug_macro   0x00000000      0xacc ./Core/drivers/sht21/sht21_driver.o
- .debug_line    0x00000000       0x45 ./Core/drivers/sht21/sht21_driver.o
- .debug_str     0x00000000     0x2e4c ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x21b ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x2e ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x22 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x22 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x8e ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x51 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x103 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x6a ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x1df ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x1c ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x22 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0xbd ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0xd23 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000     0xe09e ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x6d ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000     0x34a2 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x190 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x5c ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x5bc ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x289 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x1cb ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x114 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x1b2 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x27 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x136 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x1bc ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x34 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x3c ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x57 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x87 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x240 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x287 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x140 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000      0x8ed ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x83 ./Core/drivers/sht21/sht21_driver.o
+ .debug_macro   0x00000000       0x10 ./Core/drivers/sht21/sht21_driver.o
+ .debug_line    0x00000000      0x8ab ./Core/drivers/sht21/sht21_driver.o
+ .debug_str     0x00000000    0x83c5f ./Core/drivers/sht21/sht21_driver.o
  .comment       0x00000000       0x44 ./Core/drivers/sht21/sht21_driver.o
+ .debug_frame   0x00000000      0x15c ./Core/drivers/sht21/sht21_driver.o
  .ARM.attributes
                 0x00000000       0x2d ./Core/drivers/sht21/sht21_driver.o
  .group         0x00000000        0xc ./Core/services/environment_measure/environment_data.o
@@ -3136,12 +3267,24 @@ Discarded input sections
  .debug_frame   0x00000000       0x2c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-sbrkr.o)
  .ARM.attributes
                 0x00000000       0x2d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(libc_a-sbrkr.o)
+ .text          0x00000000      0x254 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldf3.o)
+ .data          0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldf3.o)
+ .bss           0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldf3.o)
+ .debug_frame   0x00000000       0x30 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldf3.o)
+ .ARM.attributes
+                0x00000000       0x1d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldf3.o)
  .data          0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubdf3.o)
  .bss           0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubdf3.o)
  .data          0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivdf3.o)
  .bss           0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivdf3.o)
  .data          0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_truncdfsf2.o)
  .bss           0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_truncdfsf2.o)
+ .text          0x00000000      0x21c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .data          0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .bss           0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .debug_frame   0x00000000       0x4c C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .ARM.attributes
+                0x00000000       0x1d C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
  .text          0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp/crtend.o
  .data          0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp/crtend.o
  .bss           0x00000000        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7-m/nofp/crtend.o
@@ -3175,6 +3318,7 @@ LOAD ./Core/Startup/startup_stm32f103c8tx.o
 LOAD ./Core/drivers/dht22/delay_us.o
 LOAD ./Core/drivers/dht22/dht22_driver.o
 LOAD ./Core/drivers/rtc/rtc_driver.o
+LOAD ./Core/drivers/sht21/crc8.o
 LOAD ./Core/drivers/sht21/sht21_driver.o
 LOAD ./Core/services/environment_measure/environment_data.o
 LOAD ./Core/services/rtc_manager/date_and_time.o

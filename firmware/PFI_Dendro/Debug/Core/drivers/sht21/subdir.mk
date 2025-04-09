@@ -5,12 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/drivers/sht21/crc8.c \
 ../Core/drivers/sht21/sht21_driver.c 
 
 OBJS += \
+./Core/drivers/sht21/crc8.o \
 ./Core/drivers/sht21/sht21_driver.o 
 
 C_DEPS += \
+./Core/drivers/sht21/crc8.d \
 ./Core/drivers/sht21/sht21_driver.d 
 
 
@@ -21,7 +24,7 @@ Core/drivers/sht21/%.o Core/drivers/sht21/%.su Core/drivers/sht21/%.cyclo: ../Co
 clean: clean-Core-2f-drivers-2f-sht21
 
 clean-Core-2f-drivers-2f-sht21:
-	-$(RM) ./Core/drivers/sht21/sht21_driver.cyclo ./Core/drivers/sht21/sht21_driver.d ./Core/drivers/sht21/sht21_driver.o ./Core/drivers/sht21/sht21_driver.su
+	-$(RM) ./Core/drivers/sht21/crc8.cyclo ./Core/drivers/sht21/crc8.d ./Core/drivers/sht21/crc8.o ./Core/drivers/sht21/crc8.su ./Core/drivers/sht21/sht21_driver.cyclo ./Core/drivers/sht21/sht21_driver.d ./Core/drivers/sht21/sht21_driver.o ./Core/drivers/sht21/sht21_driver.su
 
 .PHONY: clean-Core-2f-drivers-2f-sht21
 

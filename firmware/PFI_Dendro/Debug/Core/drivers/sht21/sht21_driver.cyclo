@@ -1,0 +1,9 @@
+../Core/drivers/sht21/sht21_driver.c:26:21:sht21ConfigResolution	4
+../Core/drivers/sht21/sht21_driver.c:53:21:sht21SendCommand	1
+../Core/drivers/sht21/sht21_driver.c:59:14:temperatureConversion	1
+../Core/drivers/sht21/sht21_driver.c:63:14:humidityConversion	1
+../Core/drivers/sht21/sht21_driver.c:67:21:sht21ReadMeasurement	6
+../Core/drivers/sht21/sht21_driver.c:109:14:sht21Init	1
+../Core/drivers/sht21/sht21_driver.c:116:14:sht21GetRelativeHumidity	1
+../Core/drivers/sht21/sht21_driver.c:122:14:sht21GetTemperature	1
+../Core/drivers/sht21/sht21_driver.c:128:14:sht21SoftReset	2

@@ -8,6 +8,7 @@
 "./Core/drivers/dht22/delay_us.o"
 "./Core/drivers/dht22/dht22_driver.o"
 "./Core/drivers/rtc/rtc_driver.o"
+"./Core/drivers/sht21/crc8.o"
 "./Core/drivers/sht21/sht21_driver.o"
 "./Core/services/environment_measure/environment_data.o"
 "./Core/services/rtc_manager/date_and_time.o"
