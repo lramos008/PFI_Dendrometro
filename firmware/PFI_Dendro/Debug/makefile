@@ -11,10 +11,8 @@ RM := rm -rf
 -include sources.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
 -include Core/services/rtc_manager/subdir.mk
--include Core/services/environment_measure/subdir.mk
 -include Core/drivers/sht21/subdir.mk
 -include Core/drivers/rtc/subdir.mk
--include Core/drivers/dht22/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
@@ -65,8 +63,8 @@ all: main-build
 main-build: PFI_Dendro.elf secondary-outputs
 
 # Tool invocations
-PFI_Dendro.elf PFI_Dendro.map: $(OBJS) $(USER_OBJS) C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+PFI_Dendro.elf PFI_Dendro.map: $(OBJS) $(USER_OBJS) /home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

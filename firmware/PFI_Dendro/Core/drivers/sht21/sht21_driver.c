@@ -1,5 +1,10 @@
+/* This library is a driver for the SHT21 in hold master mode. This means
+ * the SHT21 module forces the master into a wait state while measuring
+ * temperature or relative humidity by pulling down the SCL line. By doing
+ * so, the user doesn't need to implement delays on his own. For non blocking
+ * applications, use the SHT21 in no hold master mode. */
 // ==========================[ Includes ]===============================
-#include "sht21_driver.h"	//0b01111110
+#include "sht21_driver.h"
 // =======================[ Private Defines ]===========================
 #define SHT21_SLAVE_ADDRESS					(0x40 << 1)
 #define SHT21_TRIGGER_TEMPERATURE_MEASURE	0xE3							//Hold master mode
@@ -11,6 +16,7 @@
 #define SHT21_RESOLUTION_MODE4				(1 << 7) | (1 << 0)				//RH: 11 bits, T: 11 bits
 #define SHT21_READ_USER_REGISTER			0xE7
 #define SHT21_WRITE_USER_REGISTER			0xE6
+#define SHT21_STARTUP_DELAY					15								//in ms
 
 // =====================[ External variables ]==========================
 extern I2C_HandleTypeDef hi2c1;
@@ -107,9 +113,10 @@ static tSht21Status sht21ReadMeasurement(tSht21Measurement measurementType, floa
 
 // ===================== [ Public functions ]===========================
 tSht21Status sht21Init(void){
+	//Obs: Heater is turned off when power on occurs or at soft reset by default
 	tSht21Status status;
-	HAL_Delay(15);
-	status = sht21ConfigResolution(SHT21_RESOLUTION_MODE2);
+	HAL_Delay(SHT21_STARTUP_DELAY);														//Wait start up time
+	status = sht21ConfigResolution(SHT21_RESOLUTION_MODE2);								//RH: 8 bits, T: 12 bits
 	return status;
 }
 
@@ -128,7 +135,7 @@ tSht21Status sht21GetTemperature(float *temperature){
 tSht21Status sht21SoftReset(void){
 	tSht21Status status;
 	status = sht21SendCommand(SHT21_REBOOT_SENSOR);
-	if(status == SHT21_OK) HAL_Delay(15);												//Wait until the SHT21 starts again
+	if(status == SHT21_OK) HAL_Delay(SHT21_STARTUP_DELAY);								//Wait until the SHT21 starts again
 	return status;
 }
 

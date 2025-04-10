@@ -22,11 +22,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Src/../services/environment_measure/environment_data.h \
- ../Core/Inc/../drivers/dht22/dht22_driver.h \
- ../Core/Inc/../drivers/dht22/delay_us.h
+ /home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/sht21/sht21_driver.h \
+ /home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/sht21/crc8.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -51,8 +48,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
-../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
-../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
-../Core/Src/../services/environment_measure/environment_data.h:
-../Core/Inc/../drivers/dht22/dht22_driver.h:
-../Core/Inc/../drivers/dht22/delay_us.h:
+/home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/sht21/sht21_driver.h:
+/home/leonardo/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/sht21/crc8.h:
