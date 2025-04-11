@@ -1,0 +1,73 @@
+// ==========================[ Private Includes ]===============================
+#include "ff.h"
+#include "file_handling.h"
+// ==========================[ Private defines ]================================
+#define FILE_MAX_RETRIES 50
+
+// ==============================[ Typedefs ]===================================
+typedef enum{
+	FILE_MOUNT_SD = 0,
+	FILE_UNMOUNT_SD,
+	FILE_OPEN_SD,
+	FILE_CLOSE_SD,
+	FILE_WRITE_SD,
+	FILE_READ_SD
+}tFileOperation;
+
+// =====================[ Private global variables ]============================
+FATFS fs;  // file system
+FIL fil; // File
+FILINFO fno;
+FRESULT fresult;  // result
+UINT br, bw;  // File read/write count
+
+// ==========================[ Private functions ]==============================
+static tFileStatus tryMountingSD(char *path){
+	uint8_t attemps = 0;
+
+	//Try to mount the SD card
+	do{
+		fresult = f_mount(&fs, path, 1);
+		attemps++;
+	}while(fresult != FR_OK && attemps < FILE_MAX_RETRIES);
+
+	//Return operation result
+	return (fresult == FR_OK) ? FILE_OK : FILE_ERROR_MOUNT;
+}
+
+static tFileStatus tryUnmountingSD(char *path){
+	uint8_t attemps = 0;
+
+	//Try to mount the SD card
+	do{
+		fresult = f_mount(NULL, path, 1);
+		attemps++;
+	}while(fresult != FR_OK && attemps < FILE_MAX_RETRIES);
+
+	//Return operation result
+	return (fresult == FR_OK) ? FILE_OK : FILE_ERROR_UNMOUNT;
+}
+
+static tFileStatus tryOpeningFile(FIL *fil, char *path, BYTE mode){
+	uint8_t attemps = 0;
+
+	//Try to open the file
+	do{
+		fresult = f_open(fil, path, mode);
+		attemps++;
+	}while(fresult != FR_OK && attemps < FILE_MAX_RETRIES);
+
+	//Return operation result
+	return (fresult == FR_OK) ? FILE_OK : FILE_ERROR_OPEN;
+
+}
+
+
+static tFileStatus tryReadingSD()
+
+tFileStatus fileCreateLog(void){
+
+}
+
+
+

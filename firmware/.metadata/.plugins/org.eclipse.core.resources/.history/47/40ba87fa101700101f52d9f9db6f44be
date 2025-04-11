@@ -1,0 +1,11 @@
+#ifndef FILE_HANDLING_H
+#define FILE_HANDLING_H
+// ==========================[ Includes ]===============================
+#include <string.h>
+
+// ==========================[ Typedefs ]===============================
+typedef struct{
+
+}sFileStatus;
+
+#endif //FILE_HANDLING_H

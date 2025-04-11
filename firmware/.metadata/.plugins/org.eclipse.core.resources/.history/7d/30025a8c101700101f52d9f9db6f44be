@@ -1,0 +1,7 @@
+#ifndef FILE_HANDLING_H
+#define FILE_HANDLING_H
+// ==========================[ Includes ]===============================
+#include <string.h>
+
+
+#endif //FILE_HANDLING_H

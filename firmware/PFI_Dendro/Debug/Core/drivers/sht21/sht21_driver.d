@@ -23,6 +23,7 @@ Core/drivers/sht21/sht21_driver.o: ../Core/drivers/sht21/sht21_driver.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h \
  ../Core/drivers/sht21/crc8.h
 ../Core/drivers/sht21/sht21_driver.h:
 ../Core/Inc/main.h:
@@ -49,4 +50,5 @@ Core/drivers/sht21/sht21_driver.o: ../Core/drivers/sht21/sht21_driver.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h:
 ../Core/drivers/sht21/crc8.h:

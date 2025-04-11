@@ -7,3 +7,4 @@
 1744141779720	Move 4 resources to 'rtc_manager'
 1744141822497	Rename resource 'environment'
 1744141836394	Move 2 resources to 'environment_measure'
+1744401822365	Move 'file_handling.c' to 'file_handling'
