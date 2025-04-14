@@ -1,0 +1,14 @@
+../Core/applications/Src/fs_interface.c:49:16:mountWrapper	1
+../Core/applications/Src/fs_interface.c:55:16:openWrapper	1
+../Core/applications/Src/fs_interface.c:61:16:closeWrapper	1
+../Core/applications/Src/fs_interface.c:67:16:readWrapper	1
+../Core/applications/Src/fs_interface.c:73:16:writeWrapper	1
+../Core/applications/Src/fs_interface.c:78:18:retryFatFsOperation	5
+../Core/applications/Src/fs_interface.c:94:13:modeMapping	6
+../Core/applications/Src/fs_interface.c:107:11:fsMountSdCard	1
+../Core/applications/Src/fs_interface.c:116:11:fsUnmountSdCard	1
+../Core/applications/Src/fs_interface.c:125:11:fsOpen	1
+../Core/applications/Src/fs_interface.c:133:11:fsClose	1
+../Core/applications/Src/fs_interface.c:138:11:fsRead	1
+../Core/applications/Src/fs_interface.c:148:11:fsWrite	1
+../Core/applications/Src/fs_interface.c:158:11:fsCheckIfFileExists	3

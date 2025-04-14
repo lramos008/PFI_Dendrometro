@@ -1,4 +1,0 @@
-#ifndef DHT22_DRIVER_H
-#define DHT22_DRIVER_H
-#include "delay_us.h"
-#endif //DHT22_DRIVER_H

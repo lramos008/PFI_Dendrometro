@@ -1,0 +1,4 @@
+#ifndef FS_INTERFACE_H
+#define FS_INTERFACE_H
+
+#endif //FS_INTERFACE_H

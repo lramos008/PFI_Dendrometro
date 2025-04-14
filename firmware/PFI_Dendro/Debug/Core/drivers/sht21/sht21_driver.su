@@ -1,9 +1,0 @@
-../Core/drivers/sht21/sht21_driver.c:32:21:sht21ConfigResolution	32	static
-../Core/drivers/sht21/sht21_driver.c:59:21:sht21SendCommand	32	static
-../Core/drivers/sht21/sht21_driver.c:65:14:temperatureConversion	16	static
-../Core/drivers/sht21/sht21_driver.c:69:14:humidityConversion	16	static
-../Core/drivers/sht21/sht21_driver.c:73:21:sht21ReadMeasurement	40	static
-../Core/drivers/sht21/sht21_driver.c:115:14:sht21Init	16	static
-../Core/drivers/sht21/sht21_driver.c:123:14:sht21GetRelativeHumidity	24	static
-../Core/drivers/sht21/sht21_driver.c:129:14:sht21GetTemperature	24	static
-../Core/drivers/sht21/sht21_driver.c:135:14:sht21SoftReset	16	static

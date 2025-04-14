@@ -1,0 +1,9 @@
+#ifndef FS_INTERFACE_H
+#define FS_INTERFACE_H
+// ==========================[ Includes ]===============================
+
+// ==========================[ Typedefs ]===============================
+typedef enum{
+
+}tFsResult;
+#endif //FS_INTERFACE_H

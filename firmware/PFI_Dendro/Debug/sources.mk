@@ -24,13 +24,8 @@ C_DEPS :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
-Core/drivers/rtc \
-Core/drivers/sd_card \
-Core/drivers/sht21 \
-Core/services/rtc_manager \
+Core/applications/Src \
+Core/drivers/Src \
 Drivers/STM32F1xx_HAL_Driver/Src \
-FATFS/App \
-FATFS/Target \
-Middlewares/Third_Party/FatFs/src \
-Middlewares/Third_Party/FatFs/src/option \
+Middleware/fatfs \
 

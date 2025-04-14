@@ -1,8 +1,0 @@
-../Core/services/rtc_manager/rtc_manager.c:3:13:rtcToDateTimeFormat	1
-../Core/services/rtc_manager/rtc_manager.c:14:6:initializeRtc	1
-../Core/services/rtc_manager/rtc_manager.c:20:6:setDateTime	2
-../Core/services/rtc_manager/rtc_manager.c:37:6:readDateTime	1
-../Core/services/rtc_manager/rtc_manager.c:48:6:enableAlarmInterrupt	1
-../Core/services/rtc_manager/rtc_manager.c:52:6:disableAlarmInterrupt	1
-../Core/services/rtc_manager/rtc_manager.c:56:6:clearAlarmInterruptFlag	1
-../Core/services/rtc_manager/rtc_manager.c:60:6:scheduleAlarmInMinutes	1

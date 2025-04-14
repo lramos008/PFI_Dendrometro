@@ -18,11 +18,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "fatfs.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "sht21_driver.h"
+#include "fs_interface.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,13 +93,20 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_SPI2_Init();
-  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
-  tSht21Status status;
-  float relativeHumidity, temperature;
-  status = sht21Init();
-  status = sht21GetRelativeHumidity(&relativeHumidity);
-  status = sht21GetTemperature(&temperature);
+  uint32_t br;
+  tFSResult res;
+  //Check if file exists
+  //res = fsMountSdCard();
+  res = fsCheckIfFileExists("genio.txt");
+  res = fsOpen("genio.txt", FILE_MODE_CREATE_NEW);
+  if(res == FS_FILE_NOT_FOUND){
+
+	  res = fsOpen("genio.txt", FILE_MODE_CREATE_NEW);
+	  res = fsWrite("Esto es chau", 12, &br);
+	  res = fsClose();
+  }
+  res = fsUnmountSdCard();
   /* USER CODE END 2 */
 
   /* Infinite loop */

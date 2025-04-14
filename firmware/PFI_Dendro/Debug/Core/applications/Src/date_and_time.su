@@ -1,0 +1,7 @@
+../Core/applications/Src/date_and_time.c:12:17:dateTimeIsLeapYear	16	static
+../Core/applications/Src/date_and_time.c:24:17:dateTimeDaysInMonth	80	static
+../Core/applications/Src/date_and_time.c:48:13:dateTimeNormalize	32	static
+../Core/applications/Src/date_and_time.c:93:17:dateTimeisValid	32	static
+../Core/applications/Src/date_and_time.c:121:6:dateTimeAddSeconds	16	static
+../Core/applications/Src/date_and_time.c:137:6:dateTimeAddMinutes	16	static
+../Core/applications/Src/date_and_time.c:153:6:dateTimeAddHours	16	static

@@ -1,7 +1,0 @@
-../Core/services/rtc_manager/date_and_time.c:12:17:dateTimeIsLeapYear	4
-../Core/services/rtc_manager/date_and_time.c:24:17:dateTimeDaysInMonth	5
-../Core/services/rtc_manager/date_and_time.c:48:13:dateTimeNormalize	4
-../Core/services/rtc_manager/date_and_time.c:93:17:dateTimeisValid	11
-../Core/services/rtc_manager/date_and_time.c:121:6:dateTimeAddSeconds	2
-../Core/services/rtc_manager/date_and_time.c:137:6:dateTimeAddMinutes	2
-../Core/services/rtc_manager/date_and_time.c:153:6:dateTimeAddHours	2
