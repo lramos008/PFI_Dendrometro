@@ -1,0 +1,24 @@
+#ifndef HM10_DRIVER_H
+#define HM10_DRIVER_H
+// ==========================[ Includes ]===============================
+#include "main.h"
+#include <string.h>
+// ==========================[ Typedefs ]===============================
+typedef enum{
+	HM10_OK = 0,
+	HM10_ERROR_DISCONNECTED,
+	HM10_ERROR_SEND_FAILED,
+	HM10_ERROR_READ_RESPONSE_FAILED
+}tHm10Status;
+
+typedef enum{
+	BAUDRATE_9600 = 4,
+	BAUDRATE_19200 = 5,
+	BAUDRATE_38400 = 6,
+	BAUDRATE_57600 = 7,
+	BAUDRATE_115200 = 8
+}tHm10BaudRate;
+
+
+void checkForResponse(void);
+#endif  //HM10_DRIVER_H

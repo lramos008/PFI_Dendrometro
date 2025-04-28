@@ -1,0 +1,10 @@
+#ifndef LOG_FORMATTER_H
+#define LOG_FORMATTER_H
+// ==========================[ Includes ]===============================
+#include <stdint.h>
+#include <string.h>
+
+// =======================[ Public functions ]============================
+void logInit(const char *filename, const char *deviceName, const char *firmwareVersion);
+void logGenerateHeader(char *buffer, uint32_t bufferSize);
+#endif //LOG_FORMATTER_H

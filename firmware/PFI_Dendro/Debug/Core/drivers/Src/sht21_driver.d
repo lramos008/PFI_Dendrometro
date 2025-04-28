@@ -24,7 +24,8 @@ Core/drivers/Src/sht21_driver.o: ../Core/drivers/Src/sht21_driver.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h \
- ../Core/drivers/Src/../Inc/../Inc/crc8.h
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
+ ../Core/drivers/Src/../Inc/crc8.h
 ../Core/drivers/Src/../Inc/sht21_driver.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
@@ -51,4 +52,5 @@ Core/drivers/Src/sht21_driver.o: ../Core/drivers/Src/sht21_driver.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h:
-../Core/drivers/Src/../Inc/../Inc/crc8.h:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
+../Core/drivers/Src/../Inc/crc8.h:

@@ -1,139 +1,25 @@
-17:35:03 **** Incremental Build of configuration Debug for project PFI_Dendro ****
+15:29:47 **** Incremental Build of configuration Debug for project PFI_Dendro ****
 make -j4 all 
-arm-none-eabi-gcc "../Middleware/fatfs/ff.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middleware/fatfs/ff.d" -MT"Middleware/fatfs/ff.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middleware/fatfs/ff.o"
+arm-none-eabi-gcc "../Core/drivers/Src/hm10_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/drivers/Src/hm10_driver.d" -MT"Core/drivers/Src/hm10_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/drivers/Src/hm10_driver.o"
+../Core/drivers/Src/hm10_driver.c: In function 'uartReceptionCallback':
+../Core/drivers/Src/hm10_driver.c:65:26: warning: unused variable 'receivedBytes' [-Wunused-variable]
+   65 |                 uint16_t receivedBytes = UART_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(huart2.hdmarx);
+      |                          ^~~~~~~~~~~~~
 arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: PFI_Dendro.elf
  
 arm-none-eabi-size  PFI_Dendro.elf 
 arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
    text	   data	    bss	    dec	    hex	filename
-  31380	     16	  11232	  42628	   a684	PFI_Dendro.elf
+  12540	     12	   2012	  14564	   38e4	PFI_Dendro.elf
 Finished building: default.size.stdout
  
 Finished building: PFI_Dendro.list
  
-17:36:13 **** Incremental Build of configuration Debug for project PFI_Dendro ****
+15:30:59 **** Incremental Build of configuration Debug for project PFI_Dendro ****
 make -j4 all 
 arm-none-eabi-size  PFI_Dendro.elf 
    text	   data	    bss	    dec	    hex	filename
-  31380	     16	  11232	  42628	   a684	PFI_Dendro.elf
+  12540	     12	   2012	  14564	   38e4	PFI_Dendro.elf
 Finished building: default.size.stdout
- 
-17:37:16 **** Incremental Build of configuration Debug for project PFI_Dendro ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:98:13: warning: variable 'res' set but not used [-Wunused-but-set-variable]
-   98 |   tFSResult res;
-      |             ^~~
-arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PFI_Dendro.elf
- 
-arm-none-eabi-size  PFI_Dendro.elf 
-arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
-   text	   data	    bss	    dec	    hex	filename
-  31400	     16	  11232	  42648	   a698	PFI_Dendro.elf
-Finished building: default.size.stdout
- 
-Finished building: PFI_Dendro.list
- 
-17:45:04 **** Incremental Build of configuration Debug for project PFI_Dendro ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/applications/Src/fs_interface.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/applications/Src/fs_interface.d" -MT"Core/applications/Src/fs_interface.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/applications/Src/fs_interface.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PFI_Dendro.elf
- 
-arm-none-eabi-size  PFI_Dendro.elf 
-arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
-   text	   data	    bss	    dec	    hex	filename
-  32600	     16	  11520	  44136	   ac68	PFI_Dendro.elf
-Finished building: default.size.stdout
- 
-Finished building: PFI_Dendro.list
- 
-17:48:09 **** Incremental Build of configuration Debug for project PFI_Dendro ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PFI_Dendro.elf
- 
-arm-none-eabi-size  PFI_Dendro.elf 
-arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
-   text	   data	    bss	    dec	    hex	filename
-  32600	     16	  11520	  44136	   ac68	PFI_Dendro.elf
-Finished building: default.size.stdout
- 
-Finished building: PFI_Dendro.list
- 
-17:48:49 **** Incremental Build of configuration Debug for project PFI_Dendro ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PFI_Dendro.elf
- 
-arm-none-eabi-size  PFI_Dendro.elf 
-arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
-   text	   data	    bss	    dec	    hex	filename
-  32600	     16	  11520	  44136	   ac68	PFI_Dendro.elf
-Finished building: default.size.stdout
- 
-Finished building: PFI_Dendro.list
- 
-17:54:39 **** Incremental Build of configuration Debug for project PFI_Dendro ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/applications/Src/fs_interface.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/applications/Src/fs_interface.d" -MT"Core/applications/Src/fs_interface.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/applications/Src/fs_interface.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PFI_Dendro.elf
- 
-arm-none-eabi-size  PFI_Dendro.elf 
-arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
-   text	   data	    bss	    dec	    hex	filename
-  32608	     16	  11520	  44144	   ac70	PFI_Dendro.elf
-Finished building: default.size.stdout
- 
-Finished building: PFI_Dendro.list
- 
-17:56:25 **** Incremental Build of configuration Debug for project PFI_Dendro ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/applications/Src/fs_interface.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/applications/Src/fs_interface.d" -MT"Core/applications/Src/fs_interface.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/applications/Src/fs_interface.o"
-arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PFI_Dendro.elf
- 
-arm-none-eabi-size  PFI_Dendro.elf 
-arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
-   text	   data	    bss	    dec	    hex	filename
-  32620	     16	  11520	  44156	   ac7c	PFI_Dendro.elf
-Finished building: default.size.stdout
- 
-Finished building: PFI_Dendro.list
- 
-17:57:43 **** Incremental Build of configuration Debug for project PFI_Dendro ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PFI_Dendro.elf
- 
-arm-none-eabi-size  PFI_Dendro.elf 
-arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
-   text	   data	    bss	    dec	    hex	filename
-  32564	     16	  11520	  44100	   ac44	PFI_Dendro.elf
-Finished building: default.size.stdout
- 
-Finished building: PFI_Dendro.list
- 
-17:58:28 **** Incremental Build of configuration Debug for project PFI_Dendro ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PFI_Dendro.elf
- 
-arm-none-eabi-size  PFI_Dendro.elf 
-arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
-   text	   data	    bss	    dec	    hex	filename
-  32576	     16	  11520	  44112	   ac50	PFI_Dendro.elf
-Finished building: default.size.stdout
- 
-Finished building: PFI_Dendro.list
  

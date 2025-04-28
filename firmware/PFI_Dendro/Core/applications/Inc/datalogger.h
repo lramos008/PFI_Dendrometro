@@ -1,0 +1,22 @@
+#ifndef DATALOGGER_H
+#define DATALOGGER_H
+// ==========================[ Includes ]===============================
+typedef enum{
+	LOGGER_OK = 0,
+	ERROR_SD_NOT_DETECTED,
+	ERROR_SD_INIT_FAILED,
+	ERROR_SD_WRITE_FAILED,
+	ERROR_SD_FILE_NOT_FOUND,
+	ERROR_RTC_NOT_DETECTED,
+	ERROR_RTC_INIT_FAILED,
+	ERROR_RTC_TIME_SYNC_FAILED,
+	ERROR_RTC_READ_FAILED,
+	ERROR_TEMP_SENSOR_NOT_DETECTED,
+
+}tLoggerStatus;
+
+
+
+
+
+#endif // DATALOGGER_H

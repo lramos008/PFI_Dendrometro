@@ -1,0 +1,46 @@
+#ifndef HM10_DRIVER_H
+#define HM10_DRIVER_H
+// ==========================[ Includes ]===============================
+#include "main.h"
+//#include "stm32f1xx_hal_uart.h"
+#include <string.h>
+// ===========================[ Defines ]===============================
+#define HM10_RX_BUFFER_SIZE						256
+#define HM10_TX_BUFER_SIZE						256
+// ==========================[ Typedefs ]===============================
+typedef enum{
+	HM10_OK = 0,
+	HM10_ERROR_DISCONNECTED,
+	HM10_ERROR_SEND_FAILED,
+	HM10_ERROR_READ_RESPONSE_FAILED
+}tHm10Status;
+
+typedef enum{
+	BAUDRATE_9600 = 4,
+	BAUDRATE_19200 = 5,
+	BAUDRATE_38400 = 6,
+	BAUDRATE_57600 = 7,
+	BAUDRATE_115200 = 8
+}tHm10BaudRate;
+
+typedef struct{
+	UART_HandleTypeDef *huart;
+
+	//Reception FIFO buffer
+	uint8_t rxBuffer[HM10_RX_BUFFER_SIZE];
+	volatile uint16_t rxHead;
+	volatile uint16_t rxTail;
+
+	//Transmission FIFO buffer
+	uint8_t txBuffer[HM10_TX_BUFER_SIZE];
+	volatile uint16_t txHead;
+	volatile uint16_t txTail;
+
+	volatile uint8_t txBusyFlag;
+}hm10Handler_t;
+
+
+void hm10Init(void);
+void hm10CheckConnection(void);
+void uartReceptionCallback(void);
+#endif  //HM10_DRIVER_H

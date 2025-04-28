@@ -1,0 +1,16 @@
+#ifndef DATALOGGER_H
+#define DATALOGGER_H
+// ==========================[ Includes ]===============================
+typedef enum{
+	LOGGER_OK = 0,
+	ERROR_SD_NOT_DETECTED,
+	ERROR_SD_INIT_FAILED,
+	ERROR_SD_WRITE_FAILED,
+	ERROR_SD_FILE_NOT_FOUND
+}tLoggerStatus;
+
+
+
+
+
+#endif // DATALOGGER_H

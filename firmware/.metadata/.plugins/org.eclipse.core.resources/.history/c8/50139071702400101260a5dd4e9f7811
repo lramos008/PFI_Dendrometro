@@ -1,0 +1,16 @@
+#ifndef FIFO_H
+#define FIFO_H
+// ==========================[ Includes ]===============================
+#include <stdint.h>
+#include <stdbool.h>
+// ==========================[ Typedefs ]===============================
+typedef struct{
+	uint8_t *buffer;
+	uint16_t size;
+	volatile uint16_t head;
+	volatile uint16_t tail;
+}fifoHandler_t;
+// ======================[ Public functions ]===============================
+void fifoInit(fifoHandler_t *f, uint8_t *buffer, uint16_t size);
+bool fifoPush(fifoHandler_t *f, uint8_t data);
+#endif //FIFO_H

@@ -7,18 +7,21 @@
 C_SRCS += \
 ../Core/drivers/Src/crc8.c \
 ../Core/drivers/Src/fatfs_sd.c \
+../Core/drivers/Src/hm10_driver.c \
 ../Core/drivers/Src/rtc_driver.c \
 ../Core/drivers/Src/sht21_driver.c 
 
 OBJS += \
 ./Core/drivers/Src/crc8.o \
 ./Core/drivers/Src/fatfs_sd.o \
+./Core/drivers/Src/hm10_driver.o \
 ./Core/drivers/Src/rtc_driver.o \
 ./Core/drivers/Src/sht21_driver.o 
 
 C_DEPS += \
 ./Core/drivers/Src/crc8.d \
 ./Core/drivers/Src/fatfs_sd.d \
+./Core/drivers/Src/hm10_driver.d \
 ./Core/drivers/Src/rtc_driver.d \
 ./Core/drivers/Src/sht21_driver.d 
 
@@ -30,7 +33,7 @@ Core/drivers/Src/%.o Core/drivers/Src/%.su Core/drivers/Src/%.cyclo: ../Core/dri
 clean: clean-Core-2f-drivers-2f-Src
 
 clean-Core-2f-drivers-2f-Src:
-	-$(RM) ./Core/drivers/Src/crc8.cyclo ./Core/drivers/Src/crc8.d ./Core/drivers/Src/crc8.o ./Core/drivers/Src/crc8.su ./Core/drivers/Src/fatfs_sd.cyclo ./Core/drivers/Src/fatfs_sd.d ./Core/drivers/Src/fatfs_sd.o ./Core/drivers/Src/fatfs_sd.su ./Core/drivers/Src/rtc_driver.cyclo ./Core/drivers/Src/rtc_driver.d ./Core/drivers/Src/rtc_driver.o ./Core/drivers/Src/rtc_driver.su ./Core/drivers/Src/sht21_driver.cyclo ./Core/drivers/Src/sht21_driver.d ./Core/drivers/Src/sht21_driver.o ./Core/drivers/Src/sht21_driver.su
+	-$(RM) ./Core/drivers/Src/crc8.cyclo ./Core/drivers/Src/crc8.d ./Core/drivers/Src/crc8.o ./Core/drivers/Src/crc8.su ./Core/drivers/Src/fatfs_sd.cyclo ./Core/drivers/Src/fatfs_sd.d ./Core/drivers/Src/fatfs_sd.o ./Core/drivers/Src/fatfs_sd.su ./Core/drivers/Src/hm10_driver.cyclo ./Core/drivers/Src/hm10_driver.d ./Core/drivers/Src/hm10_driver.o ./Core/drivers/Src/hm10_driver.su ./Core/drivers/Src/rtc_driver.cyclo ./Core/drivers/Src/rtc_driver.d ./Core/drivers/Src/rtc_driver.o ./Core/drivers/Src/rtc_driver.su ./Core/drivers/Src/sht21_driver.cyclo ./Core/drivers/Src/sht21_driver.d ./Core/drivers/Src/sht21_driver.o ./Core/drivers/Src/sht21_driver.su
 
 .PHONY: clean-Core-2f-drivers-2f-Src
 

@@ -1,0 +1,12 @@
+#ifndef DATALOGGER_H
+#define DATALOGGER_H
+// ==========================[ Includes ]===============================
+typedef enum{
+
+}tLoggerStatus;
+
+
+
+
+
+#endif // DATALOGGER_H

@@ -1,0 +1,77 @@
+// ==========================[ Includes ]===============================
+#include "hm10_driver.h"
+// =======================[ Private defines ]===========================
+//Configure commands
+#define HM10_CHECK_RESPONSE 					"AT\r\n"					//Verify that the module is responsive
+#define HM10_SET_NAME(X)						"AT+NAME" X
+#define HM10_CONFIGURE_BAUDRATE(X)				"AT+BAUD" X "\r\n"
+#define HM10_RESET								"AT+RESET"
+#define HM10_SET_LOW_POWER_MODE					"AT+PWRM1"
+#define HM10_PUT_TO_SLEEP						"AT+SLEEP"
+#define HM10_CONFIGURE_AS_PERIPHERAL			"AT+ROLE0"
+#define	HM10_CONFIGURE_ADVERSISING_INTERVAL(X) 	"AT+ADVI" X
+#define HM10_DEACTIVATE_IBEACON_MODE 			"AT+IBEA0"
+
+//Query commands
+#define HM10_GET_NAME							"AT+NAME\r\n"
+#define HM10_QUERY_MODULE_ADDRESS 				"AT+ADDR?"
+#define HM10_QUERY_ADVERTISING_INTERVAL			"AT+ADVI?"
+#define HM10_QUERY_ADVERTISING_TYPE				"AT+ADTY?"
+#define HM10_GET_VERSION						"AT+VERSION"
+
+//Response vector define
+#define UART_RX_BUFFER_SIZE						128
+// =======================[ Extern variables ]=========================
+extern UART_HandleTypeDef huart2;
+// =======================[ Global variables ]=========================
+char receptionDmaBuffer[UART_RX_BUFFER_SIZE];
+uint8_t waitingResponseFlag = 0;
+
+// =======================[ Private functions ]========================
+//static void sendCommand(const char *cmd, char *response, uint32_t timeout){
+//	HAL_UART_Transmit(&huart2,(uint8_t *) cmd, strlen(cmd), HAL_MAX_DELAY);
+//	HAL_UART_Receive(&huart2, (uint8_t *) response, MAX_RESPONSE_LENGTH, timeout);
+//}
+
+static void hm10SendCommand(char *cmd){
+	//Send AT command via UART
+	HAL_UART_Transmit(&huart2, (uint8_t *) cmd, strlen(cmd), HAL_MAX_DELAY);
+
+	//Now indicate that we are waiting a response
+	waitingResponseFlag = 1;
+}
+
+// =======================[ Public functions ]========================
+
+void hm10Init(void){
+	//Enable DMA reception
+	HAL_UART_Receive_DMA(&huart2, receptionDmaBuffer, UART_RX_BUFFER_SIZE);
+
+	//Enable idle interrupt (triggers after a certain time without receiving bytes)
+	_HAL_UART_ENABLE_IT(&huart2, UART_IT_IDLE);
+}
+
+
+void uartReceptionCallback(void){
+	if(__HAL_UART_GET_FLAG(&huart2, UART_FLAG_IDLE)){
+		__HAL_UART_CLEAR_IDLEFLAG(&huart2);
+
+		//Count the number of received bytes
+		uint16_t receivedBytes = UART_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(huart2.hdmarx);
+
+		//Process received data
+
+
+		//Enable DMA again
+		HAL_UART_Receive_DMA(&huart2, receptionDmaBuffer, UART_RX_BUFFER_SIZE);
+	}
+}
+
+
+
+
+
+
+
+
+

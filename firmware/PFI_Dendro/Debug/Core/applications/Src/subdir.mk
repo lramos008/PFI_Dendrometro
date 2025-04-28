@@ -5,18 +5,24 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/applications/Src/datalogger.c \
 ../Core/applications/Src/date_and_time.c \
 ../Core/applications/Src/fs_interface.c \
+../Core/applications/Src/log_formatter.c \
 ../Core/applications/Src/rtc_manager.c 
 
 OBJS += \
+./Core/applications/Src/datalogger.o \
 ./Core/applications/Src/date_and_time.o \
 ./Core/applications/Src/fs_interface.o \
+./Core/applications/Src/log_formatter.o \
 ./Core/applications/Src/rtc_manager.o 
 
 C_DEPS += \
+./Core/applications/Src/datalogger.d \
 ./Core/applications/Src/date_and_time.d \
 ./Core/applications/Src/fs_interface.d \
+./Core/applications/Src/log_formatter.d \
 ./Core/applications/Src/rtc_manager.d 
 
 
@@ -27,7 +33,7 @@ Core/applications/Src/%.o Core/applications/Src/%.su Core/applications/Src/%.cyc
 clean: clean-Core-2f-applications-2f-Src
 
 clean-Core-2f-applications-2f-Src:
-	-$(RM) ./Core/applications/Src/date_and_time.cyclo ./Core/applications/Src/date_and_time.d ./Core/applications/Src/date_and_time.o ./Core/applications/Src/date_and_time.su ./Core/applications/Src/fs_interface.cyclo ./Core/applications/Src/fs_interface.d ./Core/applications/Src/fs_interface.o ./Core/applications/Src/fs_interface.su ./Core/applications/Src/rtc_manager.cyclo ./Core/applications/Src/rtc_manager.d ./Core/applications/Src/rtc_manager.o ./Core/applications/Src/rtc_manager.su
+	-$(RM) ./Core/applications/Src/datalogger.cyclo ./Core/applications/Src/datalogger.d ./Core/applications/Src/datalogger.o ./Core/applications/Src/datalogger.su ./Core/applications/Src/date_and_time.cyclo ./Core/applications/Src/date_and_time.d ./Core/applications/Src/date_and_time.o ./Core/applications/Src/date_and_time.su ./Core/applications/Src/fs_interface.cyclo ./Core/applications/Src/fs_interface.d ./Core/applications/Src/fs_interface.o ./Core/applications/Src/fs_interface.su ./Core/applications/Src/log_formatter.cyclo ./Core/applications/Src/log_formatter.d ./Core/applications/Src/log_formatter.o ./Core/applications/Src/log_formatter.su ./Core/applications/Src/rtc_manager.cyclo ./Core/applications/Src/rtc_manager.d ./Core/applications/Src/rtc_manager.o ./Core/applications/Src/rtc_manager.su
 
 .PHONY: clean-Core-2f-applications-2f-Src
 

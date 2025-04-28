@@ -1,5 +1,0 @@
-#include "crc8.h"
-
-uint8_t calculateCRC(uint8_t *data, uint8_t dataSize){
-
-}

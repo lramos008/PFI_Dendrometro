@@ -2762,3 +2762,33 @@ java.lang.Exception: Resource '/PFI_Dendro/Debug/Core/applications/file_handling
 	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:288)
 	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2025-04-25 10:50:17.109 -----------------------------------------------
+eclipse.buildId=Version 1.18.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-25 10:50:51.606
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-25 10:50:51.609
+!MESSAGE Log4j2 initialized with config file C:\Users\dramos\Documents\PFI_Dendrometro\firmware\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-25 10:51:10.926
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-04-28 11:19:43.651 -----------------------------------------------
+eclipse.buildId=Version 1.18.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-28 11:21:09.272
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-28 11:21:09.275
+!MESSAGE Log4j2 initialized with config file C:\Users\dramos\Documents\PFI_Dendrometro\firmware\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-28 11:21:27.641
+!MESSAGE Started RMI Server, listening on port 41337
