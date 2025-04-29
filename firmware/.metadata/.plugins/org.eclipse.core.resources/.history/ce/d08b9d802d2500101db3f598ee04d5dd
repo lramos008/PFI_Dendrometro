@@ -1,0 +1,6 @@
+#ifndef HM10_DRIVER_H
+#define HM10_DRIVER_H
+// ==========================[ Includes ]===============================
+#include "fifo.h"
+
+#endif //HM10_DRIVER_H

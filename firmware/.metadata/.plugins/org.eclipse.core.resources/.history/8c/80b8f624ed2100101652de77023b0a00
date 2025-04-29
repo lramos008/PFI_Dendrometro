@@ -1,4 +1,0 @@
-#ifndef HM10_DRIVER_H
-#define HM10_DRIVER_H
-#include "main.h"
-#endif  //HM10_DRIVER_H

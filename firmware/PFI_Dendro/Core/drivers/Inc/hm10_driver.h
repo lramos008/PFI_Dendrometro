@@ -1,0 +1,40 @@
+#ifndef HM10_DRIVER_H
+#define HM10_DRIVER_H
+// ==========================[ Includes ]===============================
+#include <stdint.h>
+
+// ==========================[ Typedefs ]===============================
+typedef enum{
+	HM10_OK = 0,
+	//Errores de inicializacion
+	HM10_ERROR_INIT,
+	//Errores de transmision
+	HM10_ERROR_TX_FIFO_FULL,
+	HM10_ERROR_TX_UART,
+	HM10_BUSY_TX,
+	//Errores de recepcion
+	HM10_ERROR_RX_FIFO_FULL,
+	HM10_ERROR_RX_UART,
+	HM10_BUSY_RX,
+	//Errores de comandos AT
+	HM10_ERROR_INVALID_AT_CMD,
+	HM10_BUSY_AT,
+	HM10_TIMEOUT_AT,
+	//Errores genéricos
+	HM10_ERROR_NULL_PTR,
+	HM10_ERROR_UNKNOWN
+}HM10Error_t;
+
+// ==========================[ Structs ]================================
+typedef struct{
+	void (*OnCommandReception)(const uint8_t *data, uint16_t length);
+	void (*OnATResponse)(const uint8_t *response, uint16_t length);
+	void (*OnIdleState)(void);
+}HM10Callbacks_t;
+
+// ======================[ Public functions ]===========================
+HM10Error_t HM10Init(void);
+HM10Error_t HM10SendData(const uint8_t *data, uint16_t size);
+HM10Error_t HM10RegisterCallback(void);
+HM10Error_t HM10Process(void);
+#endif //HM10_DRIVER_H

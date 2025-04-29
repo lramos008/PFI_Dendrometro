@@ -1,0 +1,21 @@
+#ifndef HM10_DRIVER_H
+#define HM10_DRIVER_H
+// ==========================[ Includes ]===============================
+#include "main.h"
+#include "fifo.h"
+
+// ==========================[ Typedefs ]===============================
+typedef enum{
+	HM10_OK = 0,
+	HM10_ERROR_INIT,
+	HM10_ERROR_DEVICE_NOT_PRESENT,
+	HM10_ERROR_TX_FULL,
+	HM10_ERROR_RX_OVERFLOW,
+	HM10_ERROR_INVALID_CMD,
+	HM10_ERROR_UART,
+	HM10_ERROR_AT_RESPONSE
+}HM10Error_t;
+
+// ======================[ Public functions ]===========================
+
+#endif //HM10_DRIVER_H

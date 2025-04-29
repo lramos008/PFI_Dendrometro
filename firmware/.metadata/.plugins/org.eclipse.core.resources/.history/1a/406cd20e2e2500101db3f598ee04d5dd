@@ -1,0 +1,11 @@
+#ifndef HM10_DRIVER_H
+#define HM10_DRIVER_H
+// ==========================[ Includes ]===============================
+#include "main.h"
+#include "fifo.h"
+
+// ==========================[ Typedefs ]===============================
+
+
+// ======================[ Public functions ]===========================
+#endif //HM10_DRIVER_H

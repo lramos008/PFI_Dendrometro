@@ -1,0 +1,7 @@
+#ifndef HM10_DRIVER_H
+#define HM10_DRIVER_H
+// ==========================[ Includes ]===============================
+#include <stdint.h>
+#include <stdbool.h>
+
+#endif //HM10_DRIVER_H
