@@ -1,10 +1,10 @@
 /*This RTC module uses the 24 hs per day format*/
-// ===========================[ INCLUDES ]===============================
-#include "../Inc/rtc_driver.h"
+// ===========================[ Includes ]===============================
+#include "rtc_driver.h"
 
-// ======================[ EXTERNAL VARIABLES ]==========================
+// ======================[ External variables ]==========================
 extern I2C_HandleTypeDef hi2c1;
-// ===========================[ INCLUDES ]===============================
+// ===========================[ Defines ]===============================
 #define RTC_SLAVE_ADDRESS	   			(0x68 << 1)
 #define RTC_MEMORY_BASE_ADDRESS			0x00
 #define RTC_DATETIME_BASE_ADDRESS		RTC_MEMORY_BASE_ADDRESS
@@ -26,28 +26,62 @@ extern I2C_HandleTypeDef hi2c1;
 #define RTC_ALARM2_REGISTERS			3
 #define RTC_MAX_RETRIES				    10
 
-// =======================[ PRIVATE FUNCTIONS ]==========================
+// =======================[ Private functions ]==========================
 /**
- * Convert a decimal number into its BCD representation
+ * @brief Converts a decimal number to its BCD (Binary Coded Decimal) representation.
  *
- * @param Desired decimal number between 0 and 99.
- * @return BCD representation (4 bits per digit, 4 MSBs are tens, the other 4 bits are units).
+ * This function takes an 8-bit decimal number and converts it to BCD format,
+ * where each nibble represents a decimal digit.
+ *
+ * @param[in] decimal  Decimal value to convert (0–99).
+ *
+ * @return BCD-encoded representation of the decimal value.
+ * @note This is a private function and is intended for internal use within the RTC driver.
+ * 		 This function does not check if the value is constrained between 0-99, so you should
+ * 		 do the checking by yourself.
  */
+
 static uint8_t decimalToBCD(uint8_t decimal){
 	return ((decimal / 10) << 4) | (decimal % 10);
 }
 
+
+
 /**
- * Convert a BCD representation into its corresponding decimal number.
+ * @brief Converts a BCD-encoded byte to its decimal equivalent.
  *
- * @param BCD representation (4 bits per digit, 4 MSBs are tens, the other 4 bits are units).
- * @return Resulting decimal number between 0 and 99.
+ * This function takes an 8-bit value encoded in Binary Coded Decimal (BCD)
+ * format and converts it to the corresponding decimal value.
+ *
+ * @param[in] bcd  BCD-encoded byte (e.g., 0x25 represents decimal 25).
+ *
+ * @return Decimal representation of the BCD value.
+ *
+ * @note This is a private function and is intended for internal use within the RTC driver.
+ * 		 This function does not check if the BCD number is a valid one, so you should check
+ * 		 your implementation by yourself.
  */
+
 static uint8_t BCDToDecimal(uint8_t bcd){
 	return ((bcd >> 4) * 10) + (bcd & 0x0F);
 }
 
 
+/**
+ * @brief Writes data to RTC registers over I2C.
+ *
+ * This function attempts to write a block of data to a specified register address
+ * of the RTC device over the I2C bus. It performs multiple retries in case of failure.
+ *
+ * @param[in] slaveAddress     7-bit I2C address of the RTC device. It must be shifted 1 place to the left.
+ * @param[in] registerAddress  Register address in the RTC to write to.
+ * @param[in] dataToWrite      Pointer to the data buffer to be written.
+ * @param[in] dataSize         Number of bytes to write.
+ *
+ * @return RTC_OK if the write was successful, RTC_ERROR_WRITE otherwise.
+ *
+ * @note This is a private function and is intended for internal use within the RTC driver.
+ */
 static tRtcStatus rtcWriteRegisters(uint16_t slaveAddress, uint16_t registerAddress, uint8_t *dataToWrite, uint16_t dataSize){
 	HAL_StatusTypeDef status;
 	uint8_t retries = 0;
@@ -62,6 +96,22 @@ static tRtcStatus rtcWriteRegisters(uint16_t slaveAddress, uint16_t registerAddr
 	return (status == HAL_OK) ? RTC_OK : RTC_ERROR_WRITE;
 }
 
+
+/**
+ * @brief Reads data from RTC registers over I2C.
+ *
+ * This function attempts to read a block of data starting from a specified register
+ * address of the RTC device using the I2C bus. It performs multiple retries in case of failure.
+ *
+ * @param[in]  slaveAddress     7-bit I2C address of the RTC device. It must be shifted 1 place to the left.
+ * @param[in]  registerAddress  Register address in the RTC to start reading from.
+ * @param[out] dataToRead       Pointer to the buffer where read data will be stored.
+ * @param[in]  dataSize         Number of bytes to read.
+ *
+ * @return RTC_OK if the read was successful, RTC_ERROR_READ otherwise.
+ *
+ * @note This is a private function and is intended for internal use within the RTC driver.
+ */
 static tRtcStatus rtcReadRegisters(uint16_t slaveAddress, uint16_t registerAddress, uint8_t *dataToRead, uint16_t dataSize){
 	HAL_StatusTypeDef status;
 	uint8_t retries = 0;
@@ -74,6 +124,8 @@ static tRtcStatus rtcReadRegisters(uint16_t slaveAddress, uint16_t registerAddre
 }
 
 
+
+// =======================[ Public functions ]==========================
 tRtcStatus rtcReadDateTime(sRtcDateTime *dateTime){
 	tRtcStatus status;
 	uint8_t rtcRegisters[RTC_DATETIME_REGISTERS];
@@ -172,9 +224,6 @@ tRtcStatus rtcSetAlarm2(tRtcAlarm2Mode mode, uint8_t minutes, uint8_t hours, uin
 	//Write alarm2 registers
 	status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_ALARM2_BASE_ADDRESS, alarm2Registers, RTC_ALARM2_REGISTERS);
 
-//	//Read alarm2 registers
-//	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_ALARM2_BASE_ADDRESS, checkRegisters, RTC_ALARM2_REGISTERS);
-	//Return status of operation
 	return status;
 }
 
@@ -182,7 +231,7 @@ tRtcStatus rtcSetAlarm2(tRtcAlarm2Mode mode, uint8_t minutes, uint8_t hours, uin
 tRtcStatus rtcSetAlarm2Interrupt(bool enable){
 	tRtcStatus status;
 	uint8_t controlRegister;
-//	uint8_t checkRegister;
+
 
 	//Read the control register
 	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_CONTROL_REGISTER_ADDRESS, &controlRegister, 1);
@@ -198,8 +247,6 @@ tRtcStatus rtcSetAlarm2Interrupt(bool enable){
 		//Write the control register
 		status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_CONTROL_REGISTER_ADDRESS, &controlRegister, 1);
 
-//		//Read control register
-//		status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_CONTROL_REGISTER_ADDRESS, &checkRegister, 1);
 	}
 
 	//Return status of the operation
@@ -212,7 +259,6 @@ tRtcStatus rtcSetAlarm2Interrupt(bool enable){
 tRtcStatus rtcClearAlarm2Flag(void){
 	tRtcStatus status;
 	uint8_t statusRegister;
-//	uint8_t checkRegister;
 
 	//Read the status register
 	status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_STATUS_REGISTER_ADDRESS, &statusRegister, 1);
@@ -223,7 +269,6 @@ tRtcStatus rtcClearAlarm2Flag(void){
 		//Write the status register bit 1 to clear the A2F
 		status = rtcWriteRegisters(RTC_SLAVE_ADDRESS, RTC_STATUS_REGISTER_ADDRESS, &statusRegister, 1);
 
-//		status = rtcReadRegisters(RTC_SLAVE_ADDRESS, RTC_STATUS_REGISTER_ADDRESS, &checkRegister, 1);
 	}
 	return status;
 }
