@@ -1,5 +1,0 @@
-#ifndef LOG_FORMATTER_H
-#define LOG_FORMATTER_H
-// ==========================[ Includes ]===============================
-#include <string.h>
-#endif //LOG_FORMATTER_H

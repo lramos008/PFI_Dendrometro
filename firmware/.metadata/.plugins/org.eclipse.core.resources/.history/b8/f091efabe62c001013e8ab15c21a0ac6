@@ -1,0 +1,35 @@
+// =============================[ Includes ]===================================
+#include "hm10_driver.h"
+#include <string.h>
+#include <stdio.h>
+
+
+// ========================[ AT commands ]==============================
+#define HM10_CHECK_RESPONSE				"AT"
+#define HM10_SET_DEVICE_NAME			"AT+NAME"
+#define HM10_SET_BAUDRATE				"AT+BAUD"
+#define HM10_CHECK_BAUDRATE				"AT+BAUD?"
+#define HM10_CONFIG_ROLE				"AT+ROLE"
+#define HM10_SET_ADV_INTERVAL			"AT+ADVI"
+#define HM10_SET_ADV_TYPE				"AT+ADTY"
+#define HM10_SLEEP						"AT+SLEEP"
+#define HM10_RESET						"AT+RESET"
+#define HM10_ENABLE_AUTOSLEEP			"AT+PWRM1"
+#define HM10_DEFINE_WORK_TYPE			"AT+IMME"
+#define HM10_CONFIG_TRANSMISSION_POWER	"AT+POWE"
+
+
+// ==========================[ Private defines ]===============================
+#define CMD_BUFFER_SIZE          32
+#define RESPONSE_BUFFER_SIZE     32
+#define HM10_DMA_BUFFER_SIZE     64
+#define GLOBAL_TIMEOUT           100
+#define ENABLE_CONFIG_FUNCTIONS  1
+
+
+// ======================[ Global variables ]===========================
+UART_HandleTypeDef *hm10Uart = NULL;
+
+
+
+

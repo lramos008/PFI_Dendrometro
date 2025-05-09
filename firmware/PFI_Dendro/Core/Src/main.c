@@ -21,7 +21,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "fs_interface.h"
 #include "hm10_driver.h"
 /* USER CODE END Includes */
 
@@ -47,7 +46,6 @@ SPI_HandleTypeDef hspi2;
 
 UART_HandleTypeDef huart2;
 DMA_HandleTypeDef hdma_usart2_rx;
-DMA_HandleTypeDef hdma_usart2_tx;
 
 /* USER CODE BEGIN PV */
 
@@ -66,7 +64,7 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-volatile uint8_t receptionCompleteFlag = 0;
+
 /* USER CODE END 0 */
 
 /**
@@ -103,18 +101,24 @@ int main(void)
   MX_SPI2_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  hm10Init();
-  hm10CheckConnection();
+  HM10Init(&huart2);
+  extern bool receptionCompleteFlag;
+  uint8_t message[5] = {'H', 'O', 'L', 'A', '\n'};
+  uint8_t *buffer;
+  HM10Status_t status;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	status = HM10Send(message, 5);
 	if(receptionCompleteFlag){
-		receptionCompleteFlag = 0;
-		HAL_Delay(1);
+		buffer = HM10GetReceptionBuffer();
+		receptionCompleteFlag = false;
+		HM10ClearReceptionBuffer();
 	}
+	HAL_Delay(100);
 
     /* USER CODE END WHILE */
 
@@ -281,9 +285,6 @@ static void MX_DMA_Init(void)
   /* DMA1_Channel6_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel6_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel6_IRQn);
-  /* DMA1_Channel7_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel7_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel7_IRQn);
 
 }
 

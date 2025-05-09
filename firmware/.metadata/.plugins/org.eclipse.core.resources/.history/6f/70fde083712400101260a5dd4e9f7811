@@ -1,7 +1,0 @@
-// ==========================[ Includes ]===============================
-#include "fifo.h"
-// ======================[ Public functions ]===============================
-void fifoInit(fifoHandler_t *f, uint8_t *buffer, uint16_t size){
-	f->buffer = buffer;
-	f->size = size;
-}

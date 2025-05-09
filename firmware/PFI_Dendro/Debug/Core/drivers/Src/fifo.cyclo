@@ -1,0 +1,4 @@
+../Core/drivers/Src/fifo.c:4:6:FIFOInit	1
+../Core/drivers/Src/fifo.c:12:6:FIFOIsEmpty	3
+../Core/drivers/Src/fifo.c:16:6:FIFOIsFull	1
+../Core/drivers/Src/fifo.c:20:10:FIFOGetCount	2

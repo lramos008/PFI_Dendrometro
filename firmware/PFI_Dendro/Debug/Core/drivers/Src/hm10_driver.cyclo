@@ -1,4 +1,7 @@
-../Core/drivers/Src/hm10_driver.c:38:13:hm10SendCommand	1
-../Core/drivers/Src/hm10_driver.c:46:6:hm10Init	1
-../Core/drivers/Src/hm10_driver.c:54:6:hm10CheckConnection	1
-../Core/drivers/Src/hm10_driver.c:59:6:uartReceptionCallback	2
+../Core/drivers/Src/hm10_driver.c:41:14:HM10Init	1
+../Core/drivers/Src/hm10_driver.c:59:6:HM10RegisterUart	1
+../Core/drivers/Src/hm10_driver.c:66:6:HM10Callback	2
+../Core/drivers/Src/hm10_driver.c:226:14:HM10Send	3
+../Core/drivers/Src/hm10_driver.c:236:13:HM10GetLastResponse	1
+../Core/drivers/Src/hm10_driver.c:243:10:HM10GetReceptionBuffer	1
+../Core/drivers/Src/hm10_driver.c:249:6:HM10ClearReceptionBuffer	1

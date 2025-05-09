@@ -1,0 +1,68 @@
+#ifndef HM10_DRIVER_H
+#define HM10_DRIVER_H
+// ==========================[ Includes ]===============================
+#include <stdint.h>
+#include <string.h>
+#include <stdbool.h>
+
+// ==========================[ Typedefs ]===============================
+typedef enum{
+	HM10_OK = 0,
+	HM10_ERROR_BUSY,
+	HM10_ERROR_UART,
+	HM10_ERROR_AT_COMMAND_RESPONSE,
+	HM10_ERROR_STRING,
+	HM10_ERROR_TIMEOUT,
+	HM10_ERROR_UNKNOWN
+}HM10Status_t;
+
+typedef enum{
+	HM10_BAUD_9600 = 0,
+	HM10_BAUD_19200,
+	HM10_BAUD_38400,
+	HM10_BAUD_57600,
+	HM10_BAUD_115200,
+	HM10_BAUD_4800,
+	HM10_BAUD_2400,
+	HM10_BAUD_1200,
+	HM10_BAUD_230400
+}HM10Baudrate_t;
+
+typedef enum{
+	HM10_ROLE_PERIPHERAL = 0,
+	HM10_ROLE_CENTRAL
+}HM10Role_t;
+
+typedef enum{
+	HM10_INTERVAL_0 = 0,				// 100 ms
+	HM10_INTERVAL_1,					// 252,5 ms
+	HM10_INTERVAL_2, 					// 211,25 ms
+	HM10_INTERVAL_3,					// 318,75 ms
+	HM10_INTERVAL_4, 					// 417,50 ms
+	HM10_INTERVAL_5,					// 546,25 ms
+	HM10_INTERVAL_6,					// 760,00 ms
+	HM10_INTERVAL_7,					// 852,50 ms
+	HM10_INTERVAL_8,					// 1022,5 ms
+	HM10_INTERVAL_9,					// 1285 ms
+	HM10_INTERVAL_A,					// 2000 ms
+	HM10_INTERVAL_B,					// 3000 ms
+	HM10_INTERVAL_C,					// 4000 ms
+	HM10_INTERVAL_D,					// 5000 ms
+	HM10_INTERVAL_E,					// 6000 ms
+	HM10_INTERVAL_F						// 7000 ms
+}HM10AdvInterval;
+
+// ==========================[ Structs ]================================
+typedef struct{
+	void (*ATResponseCallback)(const uint8_t *data, uint16_t length);
+	void (*CustomCmdCallback)(const uint8_t *response, uint16_t length);
+}HM10Callbacks_t;
+
+// ======================[ Public functions ]===========================
+HM10Status_t HM10CheckResponse(void);
+HM10Status_t HM10CheckBaudrate(HM10Baudrate_t *baudrate);
+HM10Status_t HM10SetBaudrate(HM10Baudrate_t baudrate);
+HM10Status_t HM10SetDeviceName(const char *name);
+HM10Status_t HM10ConfigRole(HM10Role_t role);
+HM10Status_t HM10ResetModule(void);
+#endif //HM10_DRIVER_H

@@ -1,25 +1,27 @@
-15:29:47 **** Incremental Build of configuration Debug for project PFI_Dendro ****
+15:36:39 **** Incremental Build of configuration Debug for project PFI_Dendro ****
 make -j4 all 
 arm-none-eabi-gcc "../Core/drivers/Src/hm10_driver.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/drivers/Src/hm10_driver.d" -MT"Core/drivers/Src/hm10_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/drivers/Src/hm10_driver.o"
-../Core/drivers/Src/hm10_driver.c: In function 'uartReceptionCallback':
-../Core/drivers/Src/hm10_driver.c:65:26: warning: unused variable 'receivedBytes' [-Wunused-variable]
-   65 |                 uint16_t receivedBytes = UART_RX_BUFFER_SIZE - __HAL_DMA_GET_COUNTER(huart2.hdmarx);
-      |                          ^~~~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Middleware/fatfs" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/applications/Inc" -I"C:/Users/dramos/Documents/PFI_Dendrometro/firmware/PFI_Dendro/Core/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:108:16: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  108 |   HM10Status_t status;
+      |                ^~~~~~
+../Core/Src/main.c:107:12: warning: variable 'buffer' set but not used [-Wunused-but-set-variable]
+  107 |   uint8_t *buffer;
+      |            ^~~~~~
+../Core/drivers/Src/hm10_driver.c: In function 'HM10Init':
+../Core/drivers/Src/hm10_driver.c:42:22: warning: unused variable 'status' [-Wunused-variable]
+   42 |         HM10Status_t status;
+      |                      ^~~~~~
 arm-none-eabi-gcc -o "PFI_Dendro.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\dramos\Documents\PFI_Dendrometro\firmware\PFI_Dendro\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PFI_Dendro.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: PFI_Dendro.elf
  
 arm-none-eabi-size  PFI_Dendro.elf 
 arm-none-eabi-objdump -h -S PFI_Dendro.elf  > "PFI_Dendro.list"
    text	   data	    bss	    dec	    hex	filename
-  12540	     12	   2012	  14564	   38e4	PFI_Dendro.elf
+  12896	     12	   1956	  14864	   3a10	PFI_Dendro.elf
 Finished building: default.size.stdout
  
 Finished building: PFI_Dendro.list
- 
-15:30:59 **** Incremental Build of configuration Debug for project PFI_Dendro ****
-make -j4 all 
-arm-none-eabi-size  PFI_Dendro.elf 
-   text	   data	    bss	    dec	    hex	filename
-  12540	     12	   2012	  14564	   38e4	PFI_Dendro.elf
-Finished building: default.size.stdout
  
