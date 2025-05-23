@@ -1,0 +1,12 @@
+#ifndef LDR_DRIVER_H
+#define LDR_DRIVER_H
+// ==========================[ Includes ]===============================
+#include <stdint.h>
+
+// ==========================[ Typedefs ]===============================
+typedef enum{
+	LDR_DAY_STATE = 0,
+	LDR_NIGHT_STATE
+};
+
+#endif //LDR_DRIVER_H
