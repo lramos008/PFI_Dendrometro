@@ -67,6 +67,23 @@ GenerateClassCluster=0
 DocumentUniqueId=OBTERZXM
 
 [Document2]
+DocumentPath=Supply_Voltage.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=IIKAGDIW
+
+[Document3]
 DocumentPath=Main.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -83,7 +100,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JMXCOQFQ
 
-[Document3]
+[Document4]
 DocumentPath=Micro_Essentials.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -100,7 +117,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YGTYPBLR
 
-[Document4]
+[Document5]
 DocumentPath=mis_bibliotecas\Componentes_custom.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -116,23 +133,6 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JADCSPXG
-
-[Document5]
-DocumentPath=Supply_Voltage.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=IIKAGDIW
 
 [Document6]
 DocumentPath=I2C_Devices.SchDoc
